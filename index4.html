@@ -242,7 +242,7 @@ function detection_1() {
      console.log(" excel: "+data.table.rows[i].c[3].v +" "+  data.table.rows[i].c[4].v);
 <!--(stime = data.table.rows[i].c[1].v) && (etime = data.table.rows[i].c[2].v) &&-->
         if((cid == data.table.rows[i].c[3].v) &&  (code == data.table.rows[i].c[4].v)){
-            console.log("table "+data.table.rows[i].c[6].v);
+            console.log("table "+data.table.rows[i].c[10].v);
 
 <!--            var img1 = new Image();-->
                 const img1 = document.createElement('img');
@@ -266,8 +266,8 @@ function detection_1() {
 <!--                url = "https://drive.google.com/uc?export=view&id="+data.table.rows[i].c[6].v;-->
 <!--            image.src = "output/"+data.table.rows[i].c[6].v;-->
 <!--            image.innerHTML="<img id='originalImg' src='" + url + "' >";-->
-            alert("output/"+data.table.rows[i].c[6].v)
-            document.getElementById("originalImg").src = "output/"+data.table.rows[i].c[6].v;
+            alert("output/"+data.table.rows[i].c[10].v)
+            document.getElementById("originalImg").src = "output/"+data.table.rows[i].c[10].v;
 
     }}
     })
