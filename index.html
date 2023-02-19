@@ -238,8 +238,8 @@ function detection_1() {
 <!--       let player_Name_title1 = document.getElementById('originalImg1').src;-->
          alert(data.table.rows.length);
          len = data.table.rows.length;
-       for (let i = 1; i < len; i++){
-     console.log(" excel: "+data.table.rows[i].c[3].v ,  data.table.rows[i].c[4].v);
+       for (let i = 0; i < len; i++){
+     console.log(" excel: "+data.table.rows[i].c[3].v +" "+  data.table.rows[i].c[4].v);
 <!--(stime = data.table.rows[i].c[1].v) && (etime = data.table.rows[i].c[2].v) &&-->
         if((cid == data.table.rows[i].c[3].v) &&  (code == data.table.rows[i].c[4].v)){
             console.log("table "+data.table.rows[i].c[6].v);
