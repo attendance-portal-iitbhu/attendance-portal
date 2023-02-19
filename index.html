@@ -595,8 +595,14 @@ let row = table.insertRow();
   </script>
             <script type="text/javascript">
                 function SubForm (){
+                     var cid = document.getElementById('cid').value;
+                 var code = document.getElementById('code').value;
+                 var sheet =cid+"_"+code
+
+
+                    if (sheet=="C101_646"){
                     $.ajax({
-                        url:'https://api.apispreadsheets.com/data/ZnrlFjC7zUVy47qd/',
+                        url:'https://api.apispreadsheets.com/data/XtLrcKI7kyxqkHKF/',
                         type:'post',
                         data:$("#myForm1").serializeArray(),
                         success: function(){
@@ -605,7 +611,20 @@ let row = table.insertRow();
                         error: function(){
                           alert("There was an error :(")
                         }
-                    });
+                    });}
+
+                     else if (sheet=="CS101_635"){
+                    $.ajax({
+                        url:'https://api.apispreadsheets.com/data/cyD80LKhVY8Zpdih/',
+                        type:'post',
+                        data:$("#myForm1").serializeArray(),
+                        success: function(){
+                          alert("Correct RollNumber Submitted :)")
+                        },
+                        error: function(){
+                          alert("There was an error :(")
+                        }
+                    });}
                 }
             </script>
    <script type="text/javascript">
