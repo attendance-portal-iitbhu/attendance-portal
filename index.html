@@ -415,9 +415,9 @@ function detection()
             const text = i.toString()+" "+bestMatch.toString()
             const drawBox = new faceapi.draw.DrawBox(box, { label: text })
             drawBox.draw(canvas)
-            var downloadlink = document.getElementById("downloadlink");
-            var imagedata = canvas.toDataURL("image/png");
-            downloadlink.href = imagedata;
+//             var downloadlink = document.getElementById("downloadlink");
+//             var imagedata = canvas.toDataURL("image/png");
+//             downloadlink.href = imagedata;
 <!--            img.append(canvas)-->
             let row = table.insertRow();
             let save = document.createElement("button");
