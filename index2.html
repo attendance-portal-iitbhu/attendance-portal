@@ -630,7 +630,7 @@ let row = table.insertRow();
 }
   </script>
             <script type="text/javascript">
-                function SubForm (){
+              function SubForm (){
                      var cid = document.getElementById('cid').value;
                  var code = document.getElementById('code').value;
                  var sheet =cid+"_"+code
@@ -652,6 +652,44 @@ let row = table.insertRow();
                      else if (sheet=="CS101_635"){
                     $.ajax({
                         url:'https://api.apispreadsheets.com/data/cyD80LKhVY8Zpdih/',
+                        type:'post',
+                        data:$("#myForm1").serializeArray(),
+                        success: function(){
+                          alert("Correct RollNumber Submitted :)")
+                        },
+                        error: function(){
+                          alert("There was an error :(")
+                        }
+                    });}
+                      else if (sheet=="EO101_122"){
+                    $.ajax({
+                        url:'https://api.apispreadsheets.com/data/QitAEiszyye6Mv6B/',
+                        type:'post',
+                        data:$("#myForm1").serializeArray(),
+                        success: function(){
+                          alert("Correct RollNumber Submitted :)")
+                        },
+                        error: function(){
+                          alert("There was an error :(")
+                        }
+                    });}
+                     
+                      else if (sheet=="MT304_843"){
+                    $.ajax({
+                        url:'https://api.apispreadsheets.com/data/z1DgHzA46SfQPd4F/',
+                        type:'post',
+                        data:$("#myForm1").serializeArray(),
+                        success: function(){
+                          alert("Correct RollNumber Submitted :)")
+                        },
+                        error: function(){
+                          alert("There was an error :(")
+                        }
+                    });}
+                     
+                      else if (sheet=="CHE204_945"){
+                    $.ajax({
+                        url:'https://api.apispreadsheets.com/data/SEN8rsR6XeeWDLVr/',
                         type:'post',
                         data:$("#myForm1").serializeArray(),
                         success: function(){
