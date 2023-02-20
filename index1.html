@@ -149,7 +149,43 @@ function LatestPost()
          });
       }
 
+function viewattendancesheet(){
+   
+    var cid = document.getElementById('cid').value;
+    var code = document.getElementById('code').value;
+      var sheet =cid+"_"+code
 
+
+                    if (sheet=="C101_646"){
+                         window.open('https://docs.google.com/spreadsheets/d/1kezTU_8Byqa8kXjMSIox24w-m4zKk0JaNfSreMJiZWI/edit#gid=0');
+                   }
+         else if (sheet=="CHE204_945"){
+                          window.open('https://docs.google.com/spreadsheets/d/1Wi4e17ZdWy-EHOjEJsbJKoRWx0NIUpHKBoPs-VGEtSY/edit#gid=0');
+                  }
+   
+   
+         else if (sheet=="MT304_843"){
+                          window.open('https://docs.google.com/spreadsheets/d/1NbWuyziz0lJpsLgWLr70gP-nvr-0yhLnjX4bcQhbAEk/edit#gid=0');
+                  }
+   
+   
+         else if (sheet=="EO101_122"){
+                          window.open('https://docs.google.com/spreadsheets/d/1Lg8AWaRr6-Zuz5o8CE0QBUgnSJKX_0Wch8fJmd5-pIY/edit#gid=0');
+                  }
+   
+   
+
+                     else if (sheet=="CS101_635"){
+                          window.open('');
+                  }
+   
+   
+   
+   
+   
+   }    
+     
+     
 function download() {
 var canvas = document.getElementById('reflay1');
 var image = canvas.toDataURL();
