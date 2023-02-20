@@ -160,6 +160,21 @@ function LatestPost()
                     if (sheet=="C101_646"){
                          window.open('https://docs.google.com/spreadsheets/d/1kezTU_8Byqa8kXjMSIox24w-m4zKk0JaNfSreMJiZWI/edit#gid=0');
                    }
+         else if (sheet=="CHE204_945"){
+                          window.open('https://docs.google.com/spreadsheets/d/1Wi4e17ZdWy-EHOjEJsbJKoRWx0NIUpHKBoPs-VGEtSY/edit#gid=0');
+                  }
+   
+   
+         else if (sheet=="MT304_843"){
+                          window.open('https://docs.google.com/spreadsheets/d/1NbWuyziz0lJpsLgWLr70gP-nvr-0yhLnjX4bcQhbAEk/edit#gid=0');
+                  }
+   
+   
+         else if (sheet=="EO101_122"){
+                          window.open('https://docs.google.com/spreadsheets/d/1Lg8AWaRr6-Zuz5o8CE0QBUgnSJKX_0Wch8fJmd5-pIY/edit#gid=0');
+                  }
+   
+   
 
                      else if (sheet=="CS101_635"){
                           window.open('');
@@ -640,6 +655,44 @@ let row = table.insertRow();
                      else if (sheet=="CS101_635"){
                     $.ajax({
                         url:'https://api.apispreadsheets.com/data/cyD80LKhVY8Zpdih/',
+                        type:'post',
+                        data:$("#myForm1").serializeArray(),
+                        success: function(){
+                          alert("Correct RollNumber Submitted :)")
+                        },
+                        error: function(){
+                          alert("There was an error :(")
+                        }
+                    });}
+                      else if (sheet=="EO101_122"){
+                    $.ajax({
+                        url:'https://api.apispreadsheets.com/data/QitAEiszyye6Mv6B/',
+                        type:'post',
+                        data:$("#myForm1").serializeArray(),
+                        success: function(){
+                          alert("Correct RollNumber Submitted :)")
+                        },
+                        error: function(){
+                          alert("There was an error :(")
+                        }
+                    });}
+                     
+                      else if (sheet=="MT304_843"){
+                    $.ajax({
+                        url:'https://api.apispreadsheets.com/data/z1DgHzA46SfQPd4F/',
+                        type:'post',
+                        data:$("#myForm1").serializeArray(),
+                        success: function(){
+                          alert("Correct RollNumber Submitted :)")
+                        },
+                        error: function(){
+                          alert("There was an error :(")
+                        }
+                    });}
+                     
+                      else if (sheet=="CHE204_945"){
+                    $.ajax({
+                        url:'https://api.apispreadsheets.com/data/SEN8rsR6XeeWDLVr/',
                         type:'post',
                         data:$("#myForm1").serializeArray(),
                         success: function(){
