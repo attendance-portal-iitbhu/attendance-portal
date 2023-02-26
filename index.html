@@ -1,0 +1,906 @@
+<html>
+<head>
+     <!-- Required meta tags -->
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
+<!--    content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <title>AI Based Attendance System</title>
+     <base target="_top">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- Required meta tags -->
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin = "anonymous" referrerpolicy = "no-referrer"> </script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<!--<script blocking="render" async src="async-script.js"></script>-->
+    <title>AI Based Attendance System</title>
+
+     <base target="_top">
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js" integrity="sha256-c3RzsUWg+y2XljunEQS0LqWdQ04X1D3j22fd/8JCAKw=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js" integrity="sha256-FPJJt8nA+xL4RU6/gsriA8p8xAeLGatoyTjldvQKGdE=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+crossorigin="anonymous">
+</script>
+    <style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+       <style type='text/css'>
+    * {
+        padding: 0;
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+
+    body {
+        background-image: url('https://i.pinimg.com/originals/7b/b8/a1/7bb8a1c2902ef64ebd058249a369de5e.jpg');
+        background-repeat: no-repeat;
+        position: relative;
+        background-size: cover;
+        font-family: sans-serif;
+        margin-top: 40px;
+        height: 100vh;
+        width: 100vw;
+        padding: 0;
+        margin: 0;
+    }
+
+    table {
+
+        border: 1px;
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 80%;
+        margin: auto;
+    }
+
+    td,
+    th {
+        border: 1px solid white !important;
+        /* padding: 5px; */
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    /* div {
+display: flex;
+justify-content: center;
+} */
+
+
+canvas {
+      position: absolute;
+      top:0
+      left: 0;
+    }
+</style>
+<style>
+<!--#overlay, .overlay {-->
+<!--            position: absolute;-->
+<!--            top: 240;-->
+<!--            left: 29;-->
+<!--            }-->
+
+#overlay1, .overlay1 {
+            position: absolute;
+            top: 260;
+            left: 780;
+            }
+ </style>
+<script type="text/javascript">
+function LatestPost()
+{
+  html2canvas(document.querySelector("#LatestPost"), {
+      onrendered: function(canvas)
+      {
+        var img = canvas.toDataURL();
+        $("#result-image").attr('src', img).show();
+        canvas.toBlob(function(blob) {
+          saveAs(blob, "student.png");
+        });
+      },
+      allowTaint: true,
+      imageTimeout: 0,
+      useCORS: true
+  });
+  return false;
+}
+     function screenshot(){
+         html2canvas(document.getElementById('scr')).then(function(canvas) {
+            document.body.appendChild(canvas);
+         });
+      }
+
+     
+   function viewattendancesheet(){
+   
+    var cid = document.getElementById('cid').value;
+    var code = document.getElementById('code').value;
+      var sheet =cid+"_"+code
+
+
+                    if (sheet=="C101_646"){
+                         window.open('https://docs.google.com/spreadsheets/d/1kezTU_8Byqa8kXjMSIox24w-m4zKk0JaNfSreMJiZWI/edit#gid=0');
+                   }
+         else if (sheet=="CHE204_945"){
+                          window.open('https://docs.google.com/spreadsheets/d/1Wi4e17ZdWy-EHOjEJsbJKoRWx0NIUpHKBoPs-VGEtSY/edit#gid=0');
+                  }
+   
+   
+         else if (sheet=="MT304_843"){
+                          window.open('https://docs.google.com/spreadsheets/d/1NbWuyziz0lJpsLgWLr70gP-nvr-0yhLnjX4bcQhbAEk/edit#gid=0');
+                  }
+   
+   
+         else if (sheet=="EO101_122"){
+                          window.open('https://docs.google.com/spreadsheets/d/1Lg8AWaRr6-Zuz5o8CE0QBUgnSJKX_0Wch8fJmd5-pIY/edit#gid=0');
+                  }
+   
+   
+
+                     else if (sheet=="CS101_635"){
+                          window.open('');
+                  }
+   
+   
+   
+   
+   
+   }  
+
+function download() {
+var canvas = document.getElementById('reflay1');
+var image = canvas.toDataURL();
+
+    // create temporary link
+    var tmpLink = document.createElement( 'a' );
+    tmpLink.download = 'image.png'; // set the name of the download file
+    tmpLink.href = image;
+
+    // temporarily add link to body and initiate the download
+    document.body.appendChild( tmpLink );
+    tmpLink.click();
+    document.body.removeChild( tmpLink );
+
+}
+</script>
+ </head>
+ <header>
+  <div class='mt-3 text-center'>
+    <h1 style="width: auto;margin: auto;color: white;padding: 11px;font-size: 35px;">One-Click Automatic Attendance For Hybrid Class</h1>
+     <h3 style="width: auto;margin: auto;color: white;padding: 11px;font-size: 28px;">IIT (BHU) Varanasi</h3></div>
+  <nav class="navbar-expand-sm bg-primary navbar-light bg-light">
+  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
+  <!-- <nav class="navbar navbar-default navbar-expand-lg"> -->
+  <div class="container-fluid">
+
+    <ul class="nav navbar-nav">
+       <li class="active"><a href="https://script.google.com/macros/s/AKfycbzU2y-UmK_uR5t1p-pAGrx4hpm1zB3ebjDzQY0Pwicxg3lyLvN6fnMbxFIZJO4tG_Hv/exec">Home</a></li>
+
+        <li><a href="https://script.google.com/macros/s/AKfycbzU2y-UmK_uR5t1p-pAGrx4hpm1zB3ebjDzQY0Pwicxg3lyLvN6fnMbxFIZJO4tG_Hv/exec?page=faculty">Course Registration</a></li>
+        <li><a href="https://script.google.com/macros/s/AKfycbzU2y-UmK_uR5t1p-pAGrx4hpm1zB3ebjDzQY0Pwicxg3lyLvN6fnMbxFIZJO4tG_Hv/exec?page=UploadFile">Student Registration</a></li>
+        <li><a href="https://script.google.com/macros/s/AKfycbzU2y-UmK_uR5t1p-pAGrx4hpm1zB3ebjDzQY0Pwicxg3lyLvN6fnMbxFIZJO4tG_Hv/exec?page=verifyimg">Verify Student Registration</a></li>
+
+
+          <li><a href="https://script.google.com/macros/s/AKfycbzU2y-UmK_uR5t1p-pAGrx4hpm1zB3ebjDzQY0Pwicxg3lyLvN6fnMbxFIZJO4tG_Hv/exec?page=login">Upload Attendance</a></li>
+
+          <li><a href="https://script.google.com/macros/s/AKfycbzU2y-UmK_uR5t1p-pAGrx4hpm1zB3ebjDzQY0Pwicxg3lyLvN6fnMbxFIZJO4tG_Hv/exec?page=studentlog">Verify Attendance</a></li>
+
+    </ul>
+  </div>
+</nav></header>
+<br>
+
+ <body>
+<script type="text/javascript">
+const download = document.getElementById('download');
+    download.addEventListener('click', function (e) {
+  const link = document.createElement('a');
+  link.download = 'download.png';
+  link.href = canvas.toDataURL();
+  link.click();
+  link.delete;
+});
+
+</script>
+<script type="text/javascript">
+function detection_1() {
+    <!--https://docs.google.com/spreadsheets/d/17ZRZu8tJ5O01DkeJwQuhm7t_IFPvAdyADVYik7qJ0Mo/edit#gid=0-->
+    <!--https://docs.google.com/spreadsheets/d/1TxLZ5pKt_HKOHO3TJRPoCCzSIGfHBFM4f3f-8IcEInk/edit#gid=0-->
+    <!--https://docs.google.com/spreadsheets/d/1U8bwm0oa4EzT0GoraS14Tjga3Piy-MLgpn5Ubca3Qfs/edit?usp=sharing-->
+    let SHEET_ID = '17ZRZu8tJ5O01DkeJwQuhm7t_IFPvAdyADVYik7qJ0Mo';
+    let SHEET_TITLE = 'Sheet1';
+    let SHEET_RANGE = 'A2:I6'
+    <!--'E13:F23'-->
+
+    var date = document.getElementById('date').value;
+    var stime = document.getElementById('stime').value;
+    var etime = document.getElementById('etime').value;
+    var cid = document.getElementById('cid').value;
+    var code = document.getElementById('code').value;
+
+    console.log("date, stime, etime, cid, ccode : "+ date +" "+ stime+" "+ etime+" "+ cid+" "+ code)
+    let FULL_URL = ('https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?sheet=' + SHEET_TITLE + '&range=' + SHEET_RANGE);
+    <!--&lt;!&ndash;https://docs.google.com/spreadsheets/d/1U8bwm0oa4EzT0GoraS14Tjga3Piy-MLgpn5Ubca3Qfs/edit#gid=0&ndash;&gt;-->
+    <!-- https://drive.google.com/uc?export=view&id=[image_id]-->
+    <!--&lt;!&ndash; https://docs.google.com/spreadsheets/d/1U8bwm0oa4EzT0GoraS14Tjga3Piy-MLgpn5Ubca3Qfs/gviz/tq?sheet=image_url&range=D2&ndash;&gt;-->
+    <!-- https://docs.google.com/spreadsheets/d/e/2PACX-1vRq8nPru_RYbA2UL-XXcD36He2lcb42wutsq9DI1qvrAglxw9IjtgbubJxRlNQK8i5Bssdg6uMPZWTu/pubhtml?gid=0&single=true-->
+
+    fetch(FULL_URL)
+    .then(res => res.text())
+    .then(rep => {
+<!--       console.log("cid " + cid + " " + time);-->
+       let data = JSON.parse(rep.substr(47).slice(0,-2));
+<!--       console.log("date1 " + data.table.rows[1].c[0].v  +" " +data.table.rows[1].c[1].v +" "+data.table.rows[1].c[2].v + " "+data.table.rows[1].c[3].v)-->
+<!--       let player_Name_title = document.getElementById('originalImg').src;-->
+<!--       let player_Name_title1 = document.getElementById('originalImg1').src;-->
+//          alert(data.table.rows.length);
+         len = data.table.rows.length;
+       for (let i = 0; i < len; i++){
+     console.log(" excel: "+data.table.rows[i].c[3].v +" "+  data.table.rows[i].c[4].v);
+<!--(stime = data.table.rows[i].c[1].v) && (etime = data.table.rows[i].c[2].v) &&-->
+        if((cid == data.table.rows[i].c[3].v) &&  (code == data.table.rows[i].c[4].v)){
+            console.log("table "+data.table.rows[i].c[6].v);
+
+<!--            var img1 = new Image();-->
+                const img1 = document.createElement('img');
+                img1.style.width = "700px";
+                img1.style.height = "700px";
+<!--            img1.crossOrigin = "anonymous";-->
+                image = document.getElementById("originalImg");
+<!--            image.crossOrigin = "Anonymous";-->
+
+<!--            player_Name_title = "https://drive.google.com/uc?export=view&id="+data.table.rows[i].c[6].v;-->
+<!--            player_Name_title1 = "https://drive.google.com/uc?export=view&id="+data.table.rows[i].c[6].v;-->
+<!--            img1.src = "https://drive.google.com/uc?export=view&id="+data.table.rows[i].c[6].v-->
+<!--            console.log("img1.src"+img1.src)-->
+<!--            image.before(img1);-->
+<!--            image.src=img1.src;-->
+<!--            image.appendChild(img1);-->
+<!--            console.log("image.src"+image.src)-->
+<!--            image.src = "https://drive.google.com/uc?export=view&id="+data.table.rows[i].c[6].v;-->
+<!--            document.getElementById("originalImg1").src = "https://drive.google.com/uc?export=view&id="+data.table.rows[i].c[6].v;-->
+<!--            console.log("https://drive.google.com/uc?export=view&id="+data.table.rows[i].c[6].v)-->
+<!--                url = "https://drive.google.com/uc?export=view&id="+data.table.rows[i].c[6].v;-->
+<!--            image.src = "output/"+data.table.rows[i].c[6].v;-->
+<!--            image.innerHTML="<img id='originalImg' src='" + url + "' >";-->
+//             alert("output/"+data.table.rows[i].c[6].v)
+            document.getElementById("originalImg").src = "output/"+data.table.rows[i].c[6].v;
+
+    }}
+    })
+}
+
+function validateForm() {
+  let x = document.forms["Form_d"]["date"].value;
+   let stime = document.forms["Form_d"]["stime"].value;
+   let etime = document.forms["Form_d"]["etime"].value;
+    let cid = document.forms["Form_d"]["cid"].value;
+    let code = document.forms["Form_d"]["code"].value;
+
+    if (x == "" ) {
+    alert("Please select date");
+    return false;
+  }
+     if (stime == "" ) {
+    alert("Please select start time");
+    return false;
+  }
+     if ( etime == "" ) {
+    alert("Please select end time");
+    return false;
+  }
+     if (cid == "" ) {
+    alert("Please select Course Id");
+    return false;
+  }
+      if (code == "" ) {
+    alert("Please select Class Code");
+    return false;
+  }
+}
+
+ function merge() {
+    var canvas = document.getElementById("reflay");
+    var ctx = canvas.getContext("2d");
+    var img = document.getElementById("originalImg");
+   ctx.drawImage(img, 700, 700);
+};
+
+
+function correct_rollno()
+{
+var roll_no = prompt('Enter correct roll number');
+    document.getElementById("rollno").value = roll_no;
+    document.getElementById("2").value = roll_no;
+    Javacsript:SubForm();
+}
+
+<!--function choose_label(){-->
+<!--if( `images/${label}.jpg`)-->
+<!--}-->
+</script>
+
+<script type="text/javascript">
+function detection()
+{
+    $(document).ready(function(){
+
+    async function face(){
+<!--        alert("input function)-->
+        const MODEL_URL = '/models'
+
+        await faceapi.loadSsdMobilenetv1Model(MODEL_URL)
+        await faceapi.loadFaceLandmarkModel(MODEL_URL)
+        await faceapi.loadFaceRecognitionModel(MODEL_URL)
+        await faceapi.loadFaceExpressionModel(MODEL_URL)
+
+        const container = document.createElement('div')
+        container.style.position = 'absolute'
+<!--        container.classList.add("mt-3 text-center");-->
+<!--        container.class ="col-6"-->
+        document.body.append(container)
+        const img= document.getElementById('originalImg')
+        container.append(img)
+<!--        document.img.append(container)-->
+<!--        document.img.append('Loaded')-->
+<!--        img.crossOrigin = "Anonymous";-->
+//         alert(img.src)
+        alert("Please wait");
+<!--        "<img src='"+img.src+"'>"-->
+<!--        const canvas = $('#reflay').get(0)-->
+        const canvas = faceapi.createCanvasFromMedia(img)
+
+        container.append(canvas)
+        const displaySize = { width: img.width, height: img.height }
+        container.append('Hello My Name')
+        faceapi.matchDimensions(canvas, displaySize)
+<!--        faceapi.matchDimensions(canvas, img)-->
+        let faceDescriptions = await faceapi.detectAllFaces(img).withFaceLandmarks().withFaceDescriptors().withFaceExpressions()
+<!--        alert(faceDescriptions)-->
+        alert("Please wait");
+
+
+<!--        alert("img and canvas")-->
+        faceDescriptions = faceapi.resizeResults(faceDescriptions, img)
+<!--        faceapi.draw.drawDetections(canvas, faceDescriptions)-->
+
+        const  labels = ['20221231','21071008','22144020',  '22145052',  '22145083', '22144021',  '22145059',  '20221231', '22144028',   '22145030',
+         '20221231', '22144028',   '22145030',   '22145059',   '22145029',   '22145058', '22144022', '22145084', '22144027',
+         '22145029',   '22145058',   '22144028',   '22145030',   '22145059',   '22145032',   '22145061','22145023',
+          '22145093', '22145033',   '22145062',    '22145095', '22144003',  '22145004', '22144002',     '22145034',
+             '22145064',  '22145096', ]
+
+        folder = document.getElementById('cid').value+'_'+document.getElementById('code').value
+        console.log("folder name: "+folder)
+        const labeledFaceDescriptors = await Promise.all(
+            labels.map(async label => {
+//-------------------------
+<!--                    if(folder == 'C101_646')-->
+<!--                    {-->
+<!--&lt;!&ndash;                    const imgUrl = 'C101_646/${label}.jpg'&ndash;&gt;-->
+<!--                    const imgUrl = `C101_646/${label}.jpg`-->
+<!--                    console.log("imgUrl "+folder+imgUrl)-->
+<!--                    }-->
+<!--                    else if(folder == 'images')-->
+<!--                    {-->
+<!--&lt;!&ndash;                    const imgUrl = 'images/${label}.jpg'&ndash;&gt;-->
+<!--                    const imgUrl = `images/${label}.jpg`-->
+<!--                    console.log("imgUrl "+imgUrl)-->
+<!--                    }-->
+//----------------
+                    const imgUrl = `images/${label}.jpg`
+                const img = await faceapi.fetchImage(imgUrl)
+
+                const faceDescription = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
+
+                if (!faceDescription) {
+                throw new Error(`no faces detected for ${label}`)
+                }
+
+                const faceDescriptors = [faceDescription.descriptor]
+                return new faceapi.LabeledFaceDescriptors(label, faceDescriptors)
+            })
+        );
+
+        const threshold = 0.7
+        const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, threshold)
+        const table = document.getElementById("testBody");
+        const result = faceDescriptions.map(fd => faceMatcher.findBestMatch(fd.descriptor))
+<!--        j=100;-->
+        result.forEach((bestMatch, i) => {
+            const box = faceDescriptions[i].detection.box
+            const text1 = i.toString()
+            const text = i.toString()+" "+bestMatch.toString()
+            const drawBox = new faceapi.draw.DrawBox(box, { label: text1 })
+            drawBox.draw(canvas)
+//             var downloadlink = document.getElementById("downloadlink");
+//             var imagedata = canvas.toDataURL("image/png");
+//             downloadlink.href = imagedata;
+<!--            img.append(canvas)-->
+            let row = table.insertRow();
+            let save = document.createElement("button");
+            let edit = document.createElement("button");
+            let date = row.insertCell(0);
+            let name = row.insertCell(1);
+            date.innerHTML = i.toString();
+            document.getElementById("sid").value=i.toString();
+            document.getElementById("rollno").value = bestMatch.toString();
+            date.setAttribute("id", 1);
+            name.setAttribute("id", 2);
+            name.innerHTML = bestMatch.toString();
+            edit_y = row.insertCell(2);
+<!--            edit_n = row.insertCell(3);-->
+<!--            edit_y.setAttribute("id",yes);-->
+<!--            edit_n.setAttribute("id",no);-->
+<!--            save = row.insertCell(3);-->
+             edit_y.innerHTML = '<input type="button" value = "Yes" onClick="Javacsript:SubForm()">&nbsp;&nbsp;<input type="button" value = "No" onClick="correct_rollno()">'
+
+//--------------------------------------------------------
+<!--    edit.innerHTML =-->
+<!--      '<input type="radio" id="Yes" value="Yes"><label for="Yes">Yes</label><input type="radio" id="no" value="no"><label for="No">NO</label>'-->
+<!--     // save.innerHTML = "<input type='text' id='edit' name='data[correct]' value='RollNo' onclick=''>";-->
+<!--&lt;!&ndash;    row.insertCell(3).innerHTML= '<input type="button" value = "Save" onClick="Javacsript:SubForm()">';&ndash;&gt;-->
+
+<!--    if(document.getElementsByName('edit').value=='no') {-->
+<!--    console.log("No choose")-->
+<!--        edit.innerHTML= '<input type="button" value = "Save" onClick="Javacsript:SubForm()">';-->
+<!--&lt;!&ndash;                document.getElementById("disp").innerHTML   &ndash;&gt;-->
+<!--&lt;!&ndash;                    = document.getElementById("summer").value   &ndash;&gt;-->
+<!--&lt;!&ndash;                    + " radio button is checked";   &ndash;&gt;-->
+<!--            }-->
+//--------------------------------------------------------
+        })
+
+    }
+    face()
+})
+}
+
+
+
+</script>
+<form name="Form_d" onsubmit="return validateForm()">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="date" style="color:white">Date</label>
+    <input type="date" id="date" name="date" value="30/01/2023" placeholder="Date">
+<!--       <label for="time" style="color:white">Time Slot</label>-->
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label for="stime" style="color:white">Start Time</label>
+    <select id="stime" name="stime">
+      <option value="8">08:00 AM</option>
+      <option value="9">09:00 AM</option>
+      <option value="10">10:00 AM</option>
+      <option value="11">11:00 AM</option>
+      <option value="12">12:00 AM</option>
+      <option value="01">01:00 PM</option>
+      <option value="02">02:00 PM</option>
+      <option value="03">03:00 PM</option>
+      <option value="04">04:00 PM</option>
+      <option value="05">05:00 PM</option>
+      <option value="06">06:00 PM</option>
+    </select>
+
+    <label for="etime" style="color:white">End Time</label>
+    <select id="etime" name="etime">
+      <option value="8">08:00 AM</option>
+      <option value="9">09:00 AM</option>
+      <option value="10">10:00 AM</option>
+      <option value="11">11:00 AM</option>
+      <option value="12">12:00 AM</option>
+      <option value="01">01:00 PM</option>
+      <option value="02">02:00 PM</option>
+      <option value="03">03:00 PM</option>
+      <option value="04">04:00 PM</option>
+      <option value="05">05:00 PM</option>
+      <option value="06">06:00 PM</option>
+      <option value="07">07:00 PM</option>
+    </select>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <label for="cid" style="color:white">Course Id</label>
+    <input type="text" id="cid" name="cid">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <label for="code" style="color:white">Class Code</label>
+    <input type="text" id="code" name="code">
+
+    <button type="button" onclick="detection_1()" class="btn btn-default">Submit</button>
+    <button type="button" onclick="detection()" class="btn btn-default">Detect</button>
+    <br><br>
+</form>
+ <div class='row-6 text-center justify-content-center'>
+<!--<div class="row justify-content-center">-->
+<div class="col-6" style="float:left">
+       <img src="images/Selection_329.png"  id="originalImg" style="position:absolute;left:0px" width="600px" height="600px" />
+
+<!--       <canvas id="reflay" width="700" height="700" class="overlay"></canvas>-->
+<!--    <h2 style="color:Yellow">Detected students</h2>-->
+</div>
+
+<!--<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>br><br><br><br>br><br><br><br>-->
+  <div class="col-4" style="float:right">
+<!--      <div class='row-6'>-->
+ <h4 style="color:white">Attendance for Today</h4>
+<table id="myTable" class="table table-bordered table-striped">
+    <form id="myForm" method="post" action="https://api.apispreadsheets.com/data/ZnrlFjC7zUVy47qd/">
+     <thead>
+    <tr style="color:white">
+      <th>Serial no.</th>
+      <th>Roll Number</th>
+      <th>Correct</th>
+<!--      <th>Not Correct</th>-->
+<!--      <th> Save </th>-->
+<!--    </th>-->
+    </tr>
+  </thead>
+  <tbody id="testBody">
+
+  </tbody>
+    </form>
+
+</table>
+
+<!--    <button onclick="ExportToExcel('xlsx')">Export table to excel</button>-->
+<!--             <input type="button"  onclick="tableToExcel('myTable', 'name', 'myfile.xls')"  class="btn btn-default" value="Export to Excel"> -->
+       <input type="button"  onclick="viewattendancesheet()"  class="btn btn-default" value="View attendance sheet">
+
+       <!--  <button type="button" onclick="LatestPost();" class="btn btn-default">Download Image</button>-->
+<!--       <a id="downloadlink" href="#" download>Download Image</a> -->
+       <button style="align:centre"  type="button" class="btn btn-default"><a href="index1.html" >Next Page</a></button>
+    <p style="color:red"> In case, the face remains undetected:<br>
+    1. Draw box on your face using by clicking on your face and enter the serial number and roll number.<br>
+    2. Download the image using download button.<br>
+    3. upload the image at this <a href="https://drive.google.com/drive/folders/1iehWSC3jFtNofH375XHtCGnO0HsoBNKv">link</a>.</p>
+       
+  </div></div>
+<!--      <button onclick="exportTableToExcel('myTable')">Export To Excel</button>-->
+
+<!--<div class='mt-3 text-center'>-->
+<!--  <br><br><br><br> <br><br><br><br> <br><br><br><br>-->
+<!--    <br><br><br><br> <br><br><br><br> <br><br><br><br>-->
+<!--     <button style="align:centre"  type="button" class="btn btn-default"><a href="index1.html" >Next</a></button>-->
+
+<!--<button  id="getPDF" type="button" class="btn btn-info" onclick="getPDF()">-->
+<!--    Download PDF-->
+<!--</button>-->
+<br>
+</div></div></div>
+ <form id="myForm1">
+<!--      <label>S.No</label>-->
+      <input type="hidden" name="sid" id="sid"/>
+      <br/>
+<!--      <label>RollNo</label>-->
+ <input type="hidden" name="rollno" id="rollno" />      <br/>
+   </form>
+<script src="js/jquery-2.1.1.min.js"></script>
+        <script src="js/face-api.js"></script>
+
+<script type="text/javascript">
+function edit_row()
+{
+const table = document.getElementById("testBody");
+let row = table.insertRow();
+ document.getElementById("edit").style.display="none";
+ document.getElementById("save_button").style.display="block";
+
+ var sno=document.getElementById("1");
+ var rno=document.getElementById("2");
+
+ var sno=row.cells[0].innerHTML;
+ var rno=row.cells[1].innerHTML;
+
+ name.innerHTML="<input type='text' id='sno' value='"+sno+"'>";
+ country.innerHTML="<input type='text' id='rno' value='"+rno+"'>";
+
+}
+  </script>
+            <script type="text/javascript">
+                function SubForm (){
+                     var cid = document.getElementById('cid').value;
+                 var code = document.getElementById('code').value;
+                 var sheet =cid+"_"+code
+
+
+                    if (sheet=="C101_646"){
+                    $.ajax({
+                        url:'https://api.apispreadsheets.com/data/XtLrcKI7kyxqkHKF/',
+                        type:'post',
+                        data:$("#myForm1").serializeArray(),
+                        success: function(){
+                          alert("Correct RollNumber Submitted :)")
+                        },
+                        error: function(){
+                          alert("There was an error :(")
+                        }
+                    });}
+
+                     else if (sheet=="CS101_635"){
+                    $.ajax({
+                        url:'https://api.apispreadsheets.com/data/cyD80LKhVY8Zpdih/',
+                        type:'post',
+                        data:$("#myForm1").serializeArray(),
+                        success: function(){
+                          alert("Correct RollNumber Submitted :)")
+                        },
+                        error: function(){
+                          alert("There was an error :(")
+                        }
+                    });}
+                      else if (sheet=="EO101_122"){
+                    $.ajax({
+                        url:'https://api.apispreadsheets.com/data/QitAEiszyye6Mv6B/',
+                        type:'post',
+                        data:$("#myForm1").serializeArray(),
+                        success: function(){
+                          alert("Correct RollNumber Submitted :)")
+                        },
+                        error: function(){
+                          alert("There was an error :(")
+                        }
+                    });}
+                     
+                      else if (sheet=="MT304_843"){
+                    $.ajax({
+                        url:'https://api.apispreadsheets.com/data/z1DgHzA46SfQPd4F/',
+                        type:'post',
+                        data:$("#myForm1").serializeArray(),
+                        success: function(){
+                          alert("Correct RollNumber Submitted :)")
+                        },
+                        error: function(){
+                          alert("There was an error :(")
+                        }
+                    });}
+                     
+                      else if (sheet=="CHE204_945"){
+                    $.ajax({
+                        url:'https://api.apispreadsheets.com/data/SEN8rsR6XeeWDLVr/',
+                        type:'post',
+                        data:$("#myForm1").serializeArray(),
+                        success: function(){
+                          alert("Correct RollNumber Submitted :)")
+                        },
+                        error: function(){
+                          alert("There was an error :(")
+                        }
+                    });}
+                }
+            </script>
+   <script type="text/javascript">
+    function popup() {
+    var my_text=prompt('Enter serial number');
+    var my_text1=prompt('Enter roll number');
+    if(my_text && my_text1) alert(my_text + my_text1);
+    const table = document.getElementById("testBody");
+    let save = document.createElement("button");
+    let edit = document.createElement("button");
+    let row = table.insertRow();
+    let date = row.insertCell(0);
+    date.innerHTML = my_text;
+    let name = row.insertCell(1);
+    date.setAttribute("id", 1);
+    name.setAttribute("id", 2);
+    name.innerHTML =my_text1;
+<!--    save = row.insertCell(2);-->
+    row.insertCell(2).innerHTML= '<input type="text" id="edit" value = "RollNo">';
+    row.insertCell(3).innerHTML= '<input type="button" value = "Save" onClick="Javacsript:deleteRow(this)">';
+    }
+
+function EditRow(obj){
+    var table = document.getElementById("testBody");
+    var index = obj.parentNode.parentNode.rowIndex;
+    var row = table.rows[index];
+    var sno= document.getElementById("1");
+    var rno= document.getElementById("2");
+    var updateid= document.getElementById("updateid");
+    sno.value=row.cells[0].innerHTML;
+    rno.value=row.cells[1].innerHTML;
+    updateid.value=index;
+}
+
+
+function edit_row(no)
+{
+     document.getElementById("edit_button"+no).style.display="none";
+     document.getElementById("save_button"+no).style.display="block";
+
+     var name=document.getElementById("name_row"+no);
+     var country=document.getElementById("country_row"+no);
+     var age=document.getElementById("age_row"+no);
+
+     var name_data=name.innerHTML;
+     var country_data=country.innerHTML;
+     var age_data=age.innerHTML;
+
+     name.innerHTML="<input type='text' id='name_text"+no+"' value='"+name_data+"'>";
+     country.innerHTML="<input type='text' id='country_text"+no+"' value='"+country_data+"'>";
+     age.innerHTML="<input type='text' id='age_text"+no+"' value='"+age_data+"'>";
+}
+ </script>
+
+
+<script type="text/javascript">
+function ExportToExcel(type, fn, dl) {
+    var elt = document.getElementById('myTable');
+    var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+    console.log(wb);
+    <!--return dl ?-->
+    <!--XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }):-->
+    <!--XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));-->
+}
+</script>
+     </div>
+<script type="text/javascript">
+function tableToExcel(table, name, filename) {
+        let uri = 'data:application/vnd.ms-excel;base64,',
+        template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><title></title><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table>{table}</table></body></html>',
+        base64 = function(s) { return window.btoa(decodeURIComponent(encodeURIComponent(s))) },         format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; })}
+
+        if (!table.nodeType) table = document.getElementById(table)
+        var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
+<!--        document.write("table:::"+base64(format(template, ctx))-->
+        var link = document.createElement('a');
+        link.download = filename;
+        link.href = uri + base64(format(template, ctx));
+        link.click();
+}
+  </script>
+</div></div>
+<!--        <input type="button" id="btnMerge" value="Merge Tables" />-->
+<!--<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vThyEuSyk50YKrlqzyQAtTcTPgFA76dMRaAkZ07lYpNKv4gBkrdoV5w82MIcIRQO7utIaWAFUjkNntH/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>-->
+        </div>
+
+
+<script src="/scripts/snippet-javascript-console.min.js?v=1"></script>
+
+<script type="text/javascript">
+const canvas2 = document.getElementById("reflay1");
+const context2 = canvas2.getContext("2d");
+
+
+const annotation = {
+          x: 0,
+          y: 0,
+          w: 0,
+          h: 0,
+          printCoordinates: function () {
+            console.log(`X: ${this.x}px, Y: ${this.y}px, Width: ${this.w}px, Height: ${this.h}px`);
+          }
+        };
+
+//the array of all rectangles
+let boundingBoxes = [];
+// the actual rectangle, the one that is being drawn
+let o={};
+
+
+// a variable to store the mouse position
+let m = {},
+// a variable to store the point where you begin to draw the rectangle
+start = {};
+// a boolean
+let isDrawing = false;
+
+function handleMouseDown(e) {
+  start = oMousePos(canvas2, e);
+  isDrawing = true;
+  //console.log(start.x, start.y);
+  canvas2.style.cursor = "crosshair";
+}
+
+function handleMouseMove(e) {
+    if(isDrawing){
+    m = oMousePos(canvas2, e);
+    draw();
+    }
+}
+
+function handleMouseUp(e) {
+    canvas2.style.cursor = "default";
+    isDrawing = false;
+
+    const box = Object.create(annotation);
+    box.x = o.x;
+    box.y = o.y;
+    box.w = o.w;
+    box.h = o.h;
+
+    boundingBoxes.push(box);
+    draw();
+    box.printCoordinates();
+    console.log(boundingBoxes)
+    }
+
+function draw() {
+    o.x = start.x;  // start position of x
+    o.y = start.y;  // start position of y
+    o.w = m.x - start.x;  // width
+    o.h = m.y - start.y;  // height
+
+    //clearcanvas();
+    context2.clearRect(0, 0, canvas2.width, canvas2.height);//////***********
+    // draw all the rectangles saved in the rectsRy
+    boundingBoxes.map(r => {drawRect(r)})
+    // draw the actual rectangle
+    drawRect(o);
+}
+
+canvas2.addEventListener("mousedown", handleMouseDown);
+
+canvas2.addEventListener("mousemove", handleMouseMove);
+
+canvas2.addEventListener("mouseup", handleMouseUp);
+
+function savecanvas(){
+    context2.clearRect(0, 0, canvas2.width, canvas2.height);
+    var savedBoxes = boundingBoxes.slice(0);
+    console.log(savedBoxes); // ok
+    }
+
+function resetcanvas(){
+    context2.clearRect(0, 0, canvas2.width, canvas2.height);
+    boundingBoxes.length = 0;
+    console.log(boundingBoxes); // ok
+    }
+
+function drawRect(o){
+        context2.strokeStyle = "orange";
+        context2.lineWidth = 4;
+        context2.beginPath(o);
+        context2.rect(o.x,o.y,o.w,o.h);
+        context2.stroke();
+    }
+
+// Function to detect the mouse position
+
+function oMousePos(canvas2, evt) {
+  let ClientRect = canvas2.getBoundingClientRect();
+    return {
+    x: Math.round(evt.clientX - ClientRect.left),
+    y: Math.round(evt.clientY - ClientRect.top)
+  }
+}
+    </script>
+
+
+
+ </body>
+</html>
