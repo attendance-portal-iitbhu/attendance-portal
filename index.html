@@ -256,20 +256,17 @@ function detection_1() {
     var etime = document.getElementById('etime').value;
     var cid = document.getElementById('cid').value;
     var code = document.getElementById('code').value;
+    alert(date)
 
-    console.log("date, stime, etime, cid, ccode : "+ date +" "+ stime+" "+ etime+" "+ cid+" "+ code)
+    console.log("date, stime, etime, cid, code : "+ date +" "+ stime+" "+ etime+" "+ cid+" "+ code)
     let FULL_URL = ('https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?sheet=' + SHEET_TITLE + '&range=' + SHEET_RANGE);
-    <!--&lt;!&ndash;https://docs.google.com/spreadsheets/d/1U8bwm0oa4EzT0GoraS14Tjga3Piy-MLgpn5Ubca3Qfs/edit#gid=0&ndash;&gt;-->
-    <!-- https://drive.google.com/uc?export=view&id=[image_id]-->
-    <!--&lt;!&ndash; https://docs.google.com/spreadsheets/d/1U8bwm0oa4EzT0GoraS14Tjga3Piy-MLgpn5Ubca3Qfs/gviz/tq?sheet=image_url&range=D2&ndash;&gt;-->
-    <!-- https://docs.google.com/spreadsheets/d/e/2PACX-1vRq8nPru_RYbA2UL-XXcD36He2lcb42wutsq9DI1qvrAglxw9IjtgbubJxRlNQK8i5Bssdg6uMPZWTu/pubhtml?gid=0&single=true-->
+   
 
     fetch(FULL_URL)
     .then(res => res.text())
     .then(rep => {
-<!--       console.log("cid " + cid + " " + time);-->
        let data = JSON.parse(rep.substr(47).slice(0,-2));
-<!--       console.log("date1 " + data.table.rows[1].c[0].v  +" " +data.table.rows[1].c[1].v +" "+data.table.rows[1].c[2].v + " "+data.table.rows[1].c[3].v)-->
+       alert("date1 " + data.table.rows[1].c[0].v  +" " +data.table.rows[1].c[1].v +" "+data.table.rows[1].c[2].v + " "+data.table.rows[1].c[3].v)
 <!--       let player_Name_title = document.getElementById('originalImg').src;-->
 <!--       let player_Name_title1 = document.getElementById('originalImg1').src;-->
 //          alert(data.table.rows.length);
