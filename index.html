@@ -266,12 +266,12 @@ function detection_1() {
     .then(res => res.text())
     .then(rep => {
        let data = JSON.parse(rep.substr(47).slice(0,-2));
-       alert("date1 " + data.table.rows[1].c[0].v  +" " +data.table.rows[1].c[1].v +" "+data.table.rows[1].c[2].v + " "+data.table.rows[1].c[3].v)
-<!--       let player_Name_title = document.getElementById('originalImg').src;-->
-<!--       let player_Name_title1 = document.getElementById('originalImg1').src;-->
+//        alert("date1 " + data.table.rows[1].c[0].v  +" " +data.table.rows[1].c[1].v +" "+data.table.rows[1].c[2].v + " "+data.table.rows[1].c[3].v)
 //          alert(data.table.rows.length);
          len = data.table.rows.length;
        for (let i = 0; i < len; i++){
+            alert(date.toString());
+            alert(data.table.rows[i].c[0].v.toString());
      console.log(" excel: "+data.table.rows[i].c[3].v +" "+  data.table.rows[i].c[4].v);
 <!--(stime = data.table.rows[i].c[1].v) && (etime = data.table.rows[i].c[2].v) &&-->
         if((date.toString() == data.table.rows[i].c[0].v.toString()) && (cid == data.table.rows[i].c[3].v) &&  (code == data.table.rows[i].c[4].v)){
