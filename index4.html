@@ -275,7 +275,7 @@ function detection_1() {
          len = data.table.rows.length;
        for (let i = 0; i < len; i++){
      console.log(" excel: "+data.table.rows[i].c[3].v +" "+  data.table.rows[i].c[4].v);
-<!--(stime = data.table.rows[i].c[1].v) && (etime = data.table.rows[i].c[2].v) &&-->
+<!--(stime = data.table.rows[i].c[1].v) && (etime = data.table.rows[i].c[2].v && (date.toString() == data.table.rows[i].c[0].v.toString())) &&-->
         if((cid == data.table.rows[i].c[3].v) &&  (code == data.table.rows[i].c[4].v)){
             console.log("table "+data.table.rows[i].c[10].v);
 
