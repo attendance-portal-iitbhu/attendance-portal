@@ -285,7 +285,7 @@ function detection_1() {
 //         if((date.toString() == data.table.rows[i].c[0].v.toString()) && (cid == data.table.rows[i].c[3].v) &&  (code == data.table.rows[i].c[4].v)){
        if((cid == data.table.rows[i].c[3].v) &&  (code == data.table.rows[i].c[4].v)){
 // && (date.toString() == data.table.rows[i].c[0].v.toString())
-            console.log("table "+data.table.rows[i].c[6].v);
+            console.log("table "+data.table.rows[i].c[5].v);
 
 <!--            var img1 = new Image();-->
                 const img1 = document.createElement('img');
@@ -310,7 +310,7 @@ function detection_1() {
 <!--            image.src = "output/"+data.table.rows[i].c[6].v;-->
 <!--            image.innerHTML="<img id='originalImg' src='" + url + "' >";-->
 //             alert("output/"+data.table.rows[i].c[6].v)
-            document.getElementById("originalImg").src = "output/"+data.table.rows[i].c[6].v;
+            document.getElementById("originalImg").src = "output/"+data.table.rows[i].c[5].v;
 
     }}
     })
