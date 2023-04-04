@@ -424,9 +424,9 @@ function detection()
         folder = document.getElementById('cid').value+'_'+document.getElementById('code').value
         console.log("folder name: "+folder)
          
-           if(folder == 'MA101_981'){
+           if(folder == `MA101_981'){
 
-    const imgUrl = 'MA101_981/${label}.jpg'
+    const imgUrl = `MA101_981/${label}.jpg'
      //devdas sir
     const  labels =  [ '22135043','22135050','22134029','22135126','22135138','22134016','22135041','22135028','22135118','22135107','22135034',
                       '22135010','22134019', '22135139','22135143','22135026','22135068','22135145','22135067','22135127','22135032','22135088',
@@ -445,11 +445,11 @@ function detection()
     console.log("imgUrl "+imgUrl)
     }
                  
-    else if(folder == 'MA201_166'){
+    else if(folder == `MA201_166'){
 
    
+     const imgUrl = `MA201_166/${label}.jpg'
 //     const imgUrl = `MA201_166/${label}.jpg'
-    const imgUrl = `MA201_166/${label}.jpg`
       //rajeev sir
     
    const  labels =  ['21135148','21135078','21135035','21135117','21134030','21135153','21135030',
@@ -509,12 +509,12 @@ function detection()
         const labeledFaceDescriptors = await Promise.all(
             labels.map(async label => {
 //-------------------------
-<!--                    if(folder == 'C101_646')-->
-<!--                    {-->
-<!--&lt;!&ndash;                    const imgUrl = 'C101_646/${label}.jpg'&ndash;&gt;-->
-<!--                    const imgUrl = `C101_646/${label}.jpg`-->
-<!--                    console.log("imgUrl "+folder+imgUrl)-->
-<!--                    }-->
+                    if(folder == `MA201_166')
+                    {
+//                     const imgUrl = 'C101_646/${label}.jpg'&ndash;&gt;-->
+                    const imgUrl = `MA201_166/${label}.jpg`
+                    console.log("imgUrl### "+imgUrl)
+                    }
   
 
 
