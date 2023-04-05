@@ -426,7 +426,7 @@ function detection()
          
            if(folder == `MA101_981'){
 
-    const imgUrl = `MA101_981/${label}.jpg'
+//     const imgUrl = `MA101_981/${label}.jpg'
      //devdas sir
     const  labels =  [ '22135043','22135050','22134029','22135126','22135138','22134016','22135041','22135028','22135118','22135107','22135034',
                       '22135010','22134019', '22135139','22135143','22135026','22135068','22135145','22135067','22135127','22135032','22135088',
@@ -442,12 +442,11 @@ function detection()
                       '22135030','22135123','22135101','22135031','22135064','22135131','22135135','22135023','22135114','22135112','22135059',
                       '22135119','22134014','22135140','22135057','22135056','22135035','22135024','22135049','22135058','22134015','22135074']
    
-    console.log("imgUrl "+imgUrl)
     }
                  
     else if(folder == `MA201_166'){
 
-   const imgUrl = `MA201_166/${label}.jpg`
+//    const imgUrl = `MA201_166/${label}.jpg`
 //      const imgUrl = `MA201_166/${label}.jpg'
 //     const imgUrl = `MA201_166/${label}.jpg'
       //rajeev sir
@@ -457,13 +456,12 @@ function detection()
 '21135042','21135087','21135147','21135074','21135061','21135002','21135096','21134032','21135014','21134023','21134009','21134007','21135138',
 '21135144','21135163','21135118','21135162','21135071','21135028','21135089','21135067','21135083','21135082','21135141','21135052','21135008']
     
-    console.log("imgUrl:::::: "+imgUrl)
     }
                  
                  
     else if(folder == 'CE335_524'){
 
-    const imgUrl = 'CE335_524/${label}.jpg'
+//     const imgUrl = 'CE335_524/${label}.jpg'
             const  labels =    ['20065118', '20065004', '20065126', '20065068', '20065104', '20064036', '20065087', '20065090', '20065029', '20065132', '20064023',
                          '20065038', '20065027', '20065016', '20065090', '20065132', '20065090', '20065134', '20065090', '20064009', '20065054', '20065025',
                          '20065080', '20064023', '20065128', '20065023', '20065076', '20064007', '20065004', '20065130', '20065071', '20064031', '20064026', 
@@ -473,32 +471,28 @@ function detection()
                          '20065073', '20065133', '20064011', '20064003', '20065028', '20065085', '20065137', '20065140', '20065028', '20065014', '20065015',
                          '20065028','20065022', '20065076', '20065005']
     
-    console.log("imgUrl "+imgUrl)
     }
                  
                  
     else if(folder == 'EC446_698'){
 
-    const imgUrl = 'EC446_698/${label}.jpg'
+//     const imgUrl = 'EC446_698/${label}.jpg'
     //     smriti mam
     const  labels = ['19095090','19095059','19095053','19095107','19095078','19095111','19095055','19095041']
 
-    console.log("imgUrl "+imgUrl)
     }
                  
                  
                   
     else if(folder == 'EE312_518'){
 
-    const imgUrl = 'EE312_518/${label}.jpg'
+//     const imgUrl = 'EE312_518/${label}.jpg'
     const labels = ['21085116','21084033','21085063','21085097','21085100','21084031']
-    console.log("imgUrl "+imgUrl)
     }
                                  
     else if(folder == 'CSE103N_726'){
 
-    const imgUrl = 'CSE103N_726/${label}.jpg'
-    console.log("imgUrl "+imgUrl)
+//     const imgUrl = 'CSE103N_726/${label}.jpg'
     }
                  
                  
@@ -518,7 +512,7 @@ function detection()
   
 
 
-//                     const imgUrl = `images/${label}.jpg`
+                    const imgUrl = `+folder+/${label}.jpg`
 //                 const imgUrl = `images/${label}.jpg`
                 const img = await faceapi.fetchImage(imgUrl)
                 const faceDescription = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
