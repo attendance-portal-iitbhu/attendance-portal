@@ -511,7 +511,7 @@ function detection()
   
 
 
-                    const imgUrl = `+folder+/${label}.jpg`
+//                     const imgUrl = `+folder+/${label}.jpg`
 //                 const imgUrl = `images/${label}.jpg`
                 const img = await faceapi.fetchImage(imgUrl)
                 const faceDescription = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
