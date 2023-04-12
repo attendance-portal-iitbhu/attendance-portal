@@ -149,9 +149,9 @@ function LatestPost()
          });
       }
 
-     
+
    function viewattendancesheet(){
-   
+
     var cid = document.getElementById('cid').value;
     var code = document.getElementById('code').value;
       var sheet =cid+"_"+code
@@ -163,28 +163,28 @@ function LatestPost()
          else if (sheet=="CHE204_945"){
                           window.open('https://docs.google.com/spreadsheets/d/1Wi4e17ZdWy-EHOjEJsbJKoRWx0NIUpHKBoPs-VGEtSY/edit#gid=0');
                   }
-   
-   
+
+
          else if (sheet=="MT304_843"){
                           window.open('https://docs.google.com/spreadsheets/d/1NbWuyziz0lJpsLgWLr70gP-nvr-0yhLnjX4bcQhbAEk/edit#gid=0');
                   }
-   
-   
+
+
          else if (sheet=="EO101_122"){
                           window.open('https://docs.google.com/spreadsheets/d/1Lg8AWaRr6-Zuz5o8CE0QBUgnSJKX_0Wch8fJmd5-pIY/edit#gid=0');
                   }
-   
-   
+
+
 
                      else if (sheet=="CS101_635"){
                           window.open('');
                   }
-   
-   
-   
-   
-   
-   }  
+
+
+
+
+
+   }
 
 function download() {
 var canvas = document.getElementById('reflay1');
@@ -257,34 +257,30 @@ function detection_1() {
     var etime = document.getElementById('etime').value;
     var cid = document.getElementById('cid').value;
     var code = document.getElementById('code').value;
-//     alert(date)
 
-    console.log("date, stime, etime, cid, code : "+ date +" "+ stime+" "+ etime+" "+ cid+" "+ code)
+    console.log("date, stime, etime, cid, ccode : "+ date +" "+ stime+" "+ etime+" "+ cid+" "+ code)
     let FULL_URL = ('https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?sheet=' + SHEET_TITLE + '&range=' + SHEET_RANGE);
-   
+    <!--&lt;!&ndash;https://docs.google.com/spreadsheets/d/1U8bwm0oa4EzT0GoraS14Tjga3Piy-MLgpn5Ubca3Qfs/edit#gid=0&ndash;&gt;-->
+    <!-- https://drive.google.com/uc?export=view&id=[image_id]-->
+    <!--&lt;!&ndash; https://docs.google.com/spreadsheets/d/1U8bwm0oa4EzT0GoraS14Tjga3Piy-MLgpn5Ubca3Qfs/gviz/tq?sheet=image_url&range=D2&ndash;&gt;-->
+    <!-- https://docs.google.com/spreadsheets/d/e/2PACX-1vRq8nPru_RYbA2UL-XXcD36He2lcb42wutsq9DI1qvrAglxw9IjtgbubJxRlNQK8i5Bssdg6uMPZWTu/pubhtml?gid=0&single=true-->
 
     fetch(FULL_URL)
     .then(res => res.text())
     .then(rep => {
+<!--       console.log("cid " + cid + " " + time);-->
        let data = JSON.parse(rep.substr(47).slice(0,-2));
-//        alert("date1 " + data.table.rows[1].c[0].v  +" " +data.table.rows[1].c[1].v +" "+data.table.rows[1].c[2].v + " "+data.table.rows[1].c[3].v)
-//          alert(data.table.rows.length);
+<!--       console.log("date1 " + data.table.rows[1].c[0].v  +" " +data.table.rows[1].c[1].v +" "+data.table.rows[1].c[2].v + " "+data.table.rows[1].c[3].v)-->
+<!--       let player_Name_title = document.getElementById('originalImg').src;-->
+<!--       let player_Name_title1 = document.getElementById('originalImg1').src;-->
+         alert(data.table.rows.length);
          len = data.table.rows.length;
-       for (let i = 0; i <= len; i++){
-            console.log(len);
-            console.log(date.toString());
-            console.log(data.table.rows[i].c[0].v.toString());
-            console.log(data.table.rows[i].c[3].v.toString());
-            console.log(data.table.rows[i].c[4].v.toString());
+       for (let i = 0; i < len; i++){
      console.log(" excel: "+data.table.rows[i].c[3].v +" "+  data.table.rows[i].c[4].v);
 <!--(stime = data.table.rows[i].c[1].v) && (etime = data.table.rows[i].c[2].v) &&-->
-//             if(cid == data.table.rows[i].c[3].v){
-//                   alert("true");}
-//              if(date.toString() == data.table.rows[i].c[0].v.toString()){
-//                   alert("true");}
-//         if((date.toString() == data.table.rows[i].c[0].v.toString()) && (cid == data.table.rows[i].c[3].v) &&  (code == data.table.rows[i].c[4].v)){
-       if((cid == data.table.rows[i].c[3].v) &&  (code == data.table.rows[i].c[4].v)){
-// && (date.toString() == data.table.rows[i].c[0].v.toString())
+
+//              && (date.toString() == data.table.rows[i].c[0].v.toString())
+        if((cid == data.table.rows[i].c[3].v) &&  (code == data.table.rows[i].c[4].v)){
             console.log("table "+data.table.rows[i].c[5].v);
 
 <!--            var img1 = new Image();-->
@@ -309,7 +305,7 @@ function detection_1() {
 <!--                url = "https://drive.google.com/uc?export=view&id="+data.table.rows[i].c[6].v;-->
 <!--            image.src = "output/"+data.table.rows[i].c[6].v;-->
 <!--            image.innerHTML="<img id='originalImg' src='" + url + "' >";-->
-//             alert("output/"+data.table.rows[i].c[6].v)
+            alert("output/"+data.table.rows[i].c[5].v)
             document.getElementById("originalImg").src = "output/"+data.table.rows[i].c[5].v;
 
     }}
@@ -399,20 +395,25 @@ function detection()
 
 
         faceDescriptions = faceapi.resizeResults(faceDescriptions, img)
-  // const  labels = ['21135148','21135035','21135030' ,'21135015','21135127','21134008','21135117','21135146', '21135069','21135020','21135094','21135076' ,'21135087','21135147','21135074', '21135061'  ,'21135096','21134032'  ,'21135014'  ,'21134009','21134007','21135138','21135144','21135163', '21135118','21135162','21135071','21135028','21135089','21135008','21135067' ,'21135083','21135082']
+   //const  labels = ['21135148','21135035','21135030' ,'21135015','21135127','21134008','21135117','21135146', '21135069','21135020','21135094','21135076' ,'21135087','21135147','21135074', '21135061'  ,'21135096','21134032'  ,'21135014'  ,'21134009','21134007','21135138','21135144','21135163', '21135118','21135162','21135071','21135028','21135089','21135008','21135067' ,'21135083','21135082']
+
  const  labels =    ['20064003', '20064008', '20064011', '20064013', '20064018', '20065004', '20065005', '20065014', '20065015', '20065022',  '20065028', '20065042', '20065044',  '20065054',  '20065065', '20065073', '20065076', '20065084', '20065085','20065096',  '20065118', '20065133',  '20065135', '20065137', '20065140']
- 
+
+
+//     }'20064024','20065051','200650959','20065134','20064097',
+
+
 //reject ,'21135153','21134010','21134030','21134031','21135125','21135042','21135002','21134023','21135141',
 //     const  labels = ['20221231','21071008','22144020','22145052', '22145083', '22144021',  '22145059',  '20221231', '22144028',   '22145030', '20221231', '22144028',   '22145030',   '22145059',   '22145029',   '22145058', '22144022', '22145084', '22144027', '22145029',   '22145058',   '22144028',   '22145030',   '22145059',   '22145032',   '22145061','22145023', '22145093', '22145033',   '22145062',    '22145095', '22144003',  '22145004', '22144002', '22145034',  '22145064',  '22145096' ]
-        
 
-    
-  
+
+
+
 
 
         folder = document.getElementById('cid').value+'_'+document.getElementById('code').value
         console.log("folder name: "+folder)
-         
+
 //            if(folder == `MA101_981'){
 
 //      //devdas sir
@@ -429,34 +430,34 @@ function detection()
 //                       '22134009','22134010','22134025','22135040','22135033','22134008','22135001','22135015','22134018','22135011','22134027',
 //                       '22135030','22135123','22135101','22135031','22135064','22135131','22135135','22135023','22135114','22135112','22135059',
 //                       '22135119','22134014','22135140','22135057','22135056','22135035','22135024','22135049','22135058','22134015','22135074']
-   
+
 //     }
-                 
+
 //     else if(folder == `MA201_166'){
 
 // //    const imgUrl = `MA201_166/${label}.jpg`
 // //      const imgUrl = `MA201_166/${label}.jpg'
 // //     const imgUrl = `MA201_166/${label}.jpg'
 //       //rajeev sir
-    
+
 //     }
-                 
-                 
+
+
 //     else if(folder == 'CE335_524'){
 
 // //     const imgUrl = 'CE335_524/${label}.jpg'
 //             const  labels =    ['20065118', '20065004', '20065126', '20065068', '20065104', '20064036', '20065087', '20065090', '20065029', '20065132', '20064023',
 //                          '20065038', '20065027', '20065016', '20065090', '20065132', '20065090', '20065134', '20065090', '20064009', '20065054', '20065025',
-//                          '20065080', '20064023', '20065128', '20065023', '20065076', '20064007', '20065004', '20065130', '20065071', '20064031', '20064026', 
+//                          '20065080', '20064023', '20065128', '20065023', '20065076', '20064007', '20065004', '20065130', '20065071', '20064031', '20064026',
 //                          '20065018', '20065003', '20065078', '20065115', '20065030', '20065042', '20064001', '20065051', '20065014', '20065077', '20065046',
 //                          '20065085', '20065107', '20065065', '20065097', '20065084', '20065044', '20065135', '20064008', '20065137','20065024', '20065085',
 //                          '20064013', '20065096', '20065059', '20065140', '20065073', '20065014','20065137','20065073', '20065065', '20064018', '20065065',
 //                          '20065073', '20065133', '20064011', '20064003', '20065028', '20065085', '20065137', '20065140', '20065028', '20065014', '20065015',
 //                          '20065028','20065022', '20065076', '20065005']
-    
+
 //     }
-                 
-                 
+
+
 //     else if(folder == 'EC446_698'){
 
 // //     const imgUrl = 'EC446_698/${label}.jpg'
@@ -464,25 +465,25 @@ function detection()
 //     const  labels = ['19095090','19095059','19095053','19095107','19095078','19095111','19095055','19095041']
 
 //     }
-                 
-                 
-                  
+
+
+
 //     else if(folder == 'EE312_518'){
 
 // //     const imgUrl = 'EE312_518/${label}.jpg'
 //     const labels = ['21085116','21084033','21085063','21085097','21085100','21084031']
 //     }
-                                 
+
 //     else if(folder == 'CSE103N_726'){
 
 // //     const imgUrl = 'CSE103N_726/${label}.jpg'
 //     }
-                 
-                 
-                 
-                 
-         
-         
+
+
+
+
+
+
         const labeledFaceDescriptors = await Promise.all(
             labels.map(async label => {
 //-------------------------
@@ -491,7 +492,7 @@ function detection()
 //                     const imgUrl = `MA201_166/${label}.jpg`
 //                     console.log("imgUrl### "+imgUrl)
 //                     }
-  
+
 
 
             const imgUrl = `CE335_524/${label}.jpg`
@@ -507,7 +508,7 @@ function detection()
         );
 
 
-        const threshold = 0.8
+        const threshold = 0.7
         const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, threshold)
         const table = document.getElementById("testBody");
         const result = faceDescriptions.map(fd => faceMatcher.findBestMatch(fd.descriptor))
@@ -653,14 +654,14 @@ function detection()
     1. Draw box on your face using by clicking on your face and enter the serial number and roll number.<br>
     2. Download the image using download button.<br>
     3. upload the image at this <a href="https://drive.google.com/drive/folders/1iehWSC3jFtNofH375XHtCGnO0HsoBNKv">link</a>.</p>
-       
+
   </div></div>
 <!--      <button onclick="exportTableToExcel('myTable')">Export To Excel</button>-->
 
 <!--<div class='mt-3 text-center'>-->
 <!--  <br><br><br><br> <br><br><br><br> <br><br><br><br>-->
 <!--    <br><br><br><br> <br><br><br><br> <br><br><br><br>-->
-<!--     <button style="align:centre"  type="button" class="btn btn-default"><a href="index1.html" >Next</a></button>-->
+<!--     <button style="align:centre"  type="button" class="btn btn-default"><a href="rosaline.html" >Next</a></button>-->
 
 <!--<button  id="getPDF" type="button" class="btn btn-info" onclick="getPDF()">-->
 <!--    Download PDF-->
@@ -740,7 +741,7 @@ let row = table.insertRow();
                           alert("There was an error :(")
                         }
                     });}
-                     
+
                       else if (sheet=="MT304_843"){
                     $.ajax({
                         url:'https://api.apispreadsheets.com/data/z1DgHzA46SfQPd4F/',
@@ -753,7 +754,7 @@ let row = table.insertRow();
                           alert("There was an error :(")
                         }
                     });}
-                     
+
                       else if (sheet=="CHE204_945"){
                     $.ajax({
                         url:'https://api.apispreadsheets.com/data/SEN8rsR6XeeWDLVr/',
