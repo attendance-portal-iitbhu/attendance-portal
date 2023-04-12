@@ -273,7 +273,7 @@ function detection_1() {
 <!--       console.log("date1 " + data.table.rows[1].c[0].v  +" " +data.table.rows[1].c[1].v +" "+data.table.rows[1].c[2].v + " "+data.table.rows[1].c[3].v)-->
 <!--       let player_Name_title = document.getElementById('originalImg').src;-->
 <!--       let player_Name_title1 = document.getElementById('originalImg1').src;-->
-         alert(data.table.rows.length);
+//          alert(data.table.rows.length);
          len = data.table.rows.length;
        for (let i = 0; i < len; i++){
      console.log(" excel: "+data.table.rows[i].c[3].v +" "+  data.table.rows[i].c[4].v);
@@ -305,7 +305,7 @@ function detection_1() {
 <!--                url = "https://drive.google.com/uc?export=view&id="+data.table.rows[i].c[6].v;-->
 <!--            image.src = "output/"+data.table.rows[i].c[6].v;-->
 <!--            image.innerHTML="<img id='originalImg' src='" + url + "' >";-->
-            alert("output/"+data.table.rows[i].c[5].v)
+//             alert("output/"+data.table.rows[i].c[5].v)
             document.getElementById("originalImg").src = "output/"+data.table.rows[i].c[5].v;
 
     }}
