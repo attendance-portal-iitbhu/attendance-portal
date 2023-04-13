@@ -518,7 +518,7 @@ const  labels = ['19095003','19095007','19095008','19095010','19095011','1909502
         );
 
 
-        const threshold = 0.7
+        const threshold = 0.6
         const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, threshold)
         const table = document.getElementById("testBody");
         const result = faceDescriptions.map(fd => faceMatcher.findBestMatch(fd.descriptor))
