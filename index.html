@@ -249,7 +249,7 @@ function detection_1() {
     <!--https://docs.google.com/spreadsheets/d/1U8bwm0oa4EzT0GoraS14Tjga3Piy-MLgpn5Ubca3Qfs/edit?usp=sharing-->
     let SHEET_ID = '17ZRZu8tJ5O01DkeJwQuhm7t_IFPvAdyADVYik7qJ0Mo';
     let SHEET_TITLE = 'Sheet1';
-    let SHEET_RANGE = 'A2:I200'
+    let SHEET_RANGE = 'A2:M200'
     <!--'E13:F23'-->
 
     var date = document.getElementById('date').value;
@@ -267,45 +267,48 @@ function detection_1() {
 
     fetch(FULL_URL)
     .then(res => res.text())
+
     .then(rep => {
 <!--       console.log("cid " + cid + " " + time);-->
        let data = JSON.parse(rep.substr(47).slice(0,-2));
-<!--       console.log("date1 " + data.table.rows[1].c[0].v  +" " +data.table.rows[1].c[1].v +" "+data.table.rows[1].c[2].v + " "+data.table.rows[1].c[3].v)-->
-<!--       let player_Name_title = document.getElementById('originalImg').src;-->
-<!--       let player_Name_title1 = document.getElementById('originalImg1').src;-->
-//          alert(data.table.rows.length);
+       //console.log(data);
+       function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2)
+        month = '0' + month;
+    if (day.length < 2)
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+}
+d1=formatDate(date);
+console.log("d1 "+formatDate(date));
+<!--console.log("date1 " + data.table.rows[1].c[0].v  +" " +data.table.rows[1].c[1].v +" "+data.table.rows[1].c[2].v + " "+data.table.rows[1].c[3].v)-->
+
+         alert(data.table.rows.length);
          len = data.table.rows.length;
        for (let i = 0; i < len; i++){
-     console.log(" excel: "+data.table.rows[i].c[3].v +" "+  data.table.rows[i].c[4].v);
+     //console.log(" excel: "+data.table.rows[i].c[0].v.toString() +" "+data.table.rows[i].c[3].v +" "+  data.table.rows[i].c[4].v);
 <!--(stime = data.table.rows[i].c[1].v) && (etime = data.table.rows[i].c[2].v) &&-->
 
-//              && (date.toString() == data.table.rows[i].c[0].v.toString())
-        if((cid == data.table.rows[i].c[3].v) &&  (code == data.table.rows[i].c[4].v)){
+if(d1==formatDate(data.table.rows[1].c[0].v )){alert("i knew that equal."+formatDate(data.table.rows[1].c[0].v ))}
+        if( (cid == data.table.rows[i].c[3].v) &&  (code == data.table.rows[i].c[4].v)){
             console.log("table "+data.table.rows[i].c[5].v);
+            d2=data.table.rows[1].c[0].v;
+d2=formatDate(d2);
 
-<!--            var img1 = new Image();-->
+console.log(d2 );
+
+
                 const img1 = document.createElement('img');
                 img1.style.width = "700px";
                 img1.style.height = "700px";
-<!--            img1.crossOrigin = "anonymous";-->
                 image = document.getElementById("originalImg");
-<!--            image.crossOrigin = "Anonymous";-->
-
-<!--            player_Name_title = "https://drive.google.com/uc?export=view&id="+data.table.rows[i].c[6].v;-->
-<!--            player_Name_title1 = "https://drive.google.com/uc?export=view&id="+data.table.rows[i].c[6].v;-->
-<!--            img1.src = "https://drive.google.com/uc?export=view&id="+data.table.rows[i].c[6].v-->
-<!--            console.log("img1.src"+img1.src)-->
-<!--            image.before(img1);-->
-<!--            image.src=img1.src;-->
-<!--            image.appendChild(img1);-->
-<!--            console.log("image.src"+image.src)-->
-<!--            image.src = "https://drive.google.com/uc?export=view&id="+data.table.rows[i].c[6].v;-->
-<!--            document.getElementById("originalImg1").src = "https://drive.google.com/uc?export=view&id="+data.table.rows[i].c[6].v;-->
-<!--            console.log("https://drive.google.com/uc?export=view&id="+data.table.rows[i].c[6].v)-->
-<!--                url = "https://drive.google.com/uc?export=view&id="+data.table.rows[i].c[6].v;-->
-<!--            image.src = "output/"+data.table.rows[i].c[6].v;-->
-<!--            image.innerHTML="<img id='originalImg' src='" + url + "' >";-->
-//             alert("output/"+data.table.rows[i].c[5].v)
+            alert("output/"+data.table.rows[i].c[5].v)
             document.getElementById("originalImg").src = "output/"+data.table.rows[i].c[5].v;
 
     }}
@@ -621,7 +624,7 @@ function detection()
        <!--  <button type="button" onclick="LatestPost();" class="btn btn-default">Download Image</button>-->
 <!--       <a id="downloadlink" href="#" download>Download Image</a> -->
        <button style="align:centre"  type="button" class="btn btn-default"><a href="index1.html" >Next Page</a></button>
-   <button style="align:centre"  type="button" class="btn btn-default"><a href="tag.html" >tag here if undetected</a></button>
+   <button style="align:centre"  type="button" class="btn btn-default"><a href="tag.html" >Tag here if undetected</a></button>
 
   </div></div>
 <!--      <button onclick="exportTableToExcel('myTable')">Export To Excel</button>-->
