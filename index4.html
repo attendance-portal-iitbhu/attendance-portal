@@ -1,0 +1,1014 @@
+<html>
+<head>
+     <!-- Required meta tags -->
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
+<!--    content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <title>AI Based Attendance System</title>
+     <base target="_top">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- Required meta tags -->
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin = "anonymous" referrerpolicy = "no-referrer"> </script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<!--<script blocking="render" async src="async-script.js"></script>-->
+    <title>AI Based Attendance System</title>
+
+     <base target="_top">
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js" integrity="sha256-c3RzsUWg+y2XljunEQS0LqWdQ04X1D3j22fd/8JCAKw=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js" integrity="sha256-FPJJt8nA+xL4RU6/gsriA8p8xAeLGatoyTjldvQKGdE=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+crossorigin="anonymous">
+</script>
+    <style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+       <style type='text/css'>
+    * {
+        padding: 0;
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+
+    body {
+        background-image: url('https://i.pinimg.com/originals/7b/b8/a1/7bb8a1c2902ef64ebd058249a369de5e.jpg');
+        background-repeat: no-repeat;
+        position: relative;
+        background-size: cover;
+        font-family: sans-serif;
+        margin-top: 40px;
+        height: 100vh;
+        width: 100vw;
+        padding: 0;
+        margin: 0;
+    }
+
+    table {
+
+        border: 1px;
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 80%;
+        margin: auto;
+    }
+
+    td,
+    th {
+        border: 1px solid white !important;
+        /* padding: 5px; */
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    /* div {
+display: flex;
+justify-content: center;
+} */
+
+
+canvas {
+      position: absolute;
+      top:0
+      left: 0;
+    }
+</style>
+<style>
+<!--#overlay, .overlay {-->
+<!--            position: absolute;-->
+<!--            top: 240;-->
+<!--            left: 29;-->
+<!--            }-->
+
+#overlay1, .overlay1 {
+            position: absolute;
+            top: 260;
+            left: 780;
+            }
+ </style>
+<script type="text/javascript">
+function LatestPost()
+{
+  html2canvas(document.querySelector("#LatestPost"), {
+      onrendered: function(canvas)
+      {
+        var img = canvas.toDataURL();
+        $("#result-image").attr('src', img).show();
+        canvas.toBlob(function(blob) {
+          saveAs(blob, "student.png");
+        });
+      },
+      allowTaint: true,
+      imageTimeout: 0,
+      useCORS: true
+  });
+  return false;
+}
+     function screenshot(){
+         html2canvas(document.getElementById('scr')).then(function(canvas) {
+            document.body.appendChild(canvas);
+         });
+      }
+
+
+   function viewattendancesheet(){
+
+    var cid = document.getElementById('cid').value;
+    var code = document.getElementById('code').value;
+      var sheet =cid+"_"+code
+
+
+                    if (sheet=="C101_646"){
+                         window.open('https://docs.google.com/spreadsheets/d/1kezTU_8Byqa8kXjMSIox24w-m4zKk0JaNfSreMJiZWI/edit#gid=0');
+                   }
+
+                  else   if (sheet=="EE313_173"){
+                  alert("i got it")
+                         window.open('https://docs.google.com/spreadsheets/d/1kezTU_8Byqa8kXjMSIox24w-m4zKk0JaNfSreMJiZWI/edit#gid=0');
+                   }
+         else if (sheet=="CHE204_945"){
+                          window.open('https://docs.google.com/spreadsheets/d/1Wi4e17ZdWy-EHOjEJsbJKoRWx0NIUpHKBoPs-VGEtSY/edit#gid=0');
+                  }
+
+
+         else if (sheet=="MT304_843"){
+                          window.open('https://docs.google.com/spreadsheets/d/1NbWuyziz0lJpsLgWLr70gP-nvr-0yhLnjX4bcQhbAEk/edit#gid=0');
+                  }
+
+
+         else if (sheet=="EO101_122"){
+                          window.open('https://docs.google.com/spreadsheets/d/1Lg8AWaRr6-Zuz5o8CE0QBUgnSJKX_0Wch8fJmd5-pIY/edit#gid=0');
+                  }
+
+
+
+                     else if (sheet=="CS101_635"){
+                          window.open('');
+                  }
+
+
+
+
+
+   }
+
+function download() {
+var canvas = document.getElementById('reflay1');
+var image = canvas.toDataURL();
+
+    // create temporary link
+    var tmpLink = document.createElement( 'a' );
+    tmpLink.download = 'image.png'; // set the name of the download file
+    tmpLink.href = image;
+
+    // temporarily add link to body and initiate the download
+    document.body.appendChild( tmpLink );
+    tmpLink.click();
+    document.body.removeChild( tmpLink );
+
+}
+</script>
+ </head>
+ <header>
+  <div class='mt-3 text-center'>
+    <h1 style="width: auto;margin: auto;color: white;padding: 11px;font-size: 35px;">One-Click Automatic Attendance For Hybrid Class</h1>
+     <h3 style="width: auto;margin: auto;color: white;padding: 11px;font-size: 28px;">IIT (BHU) Varanasi</h3></div>
+  <nav class="navbar-expand-sm bg-primary navbar-light bg-light">
+  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
+  <!-- <nav class="navbar navbar-default navbar-expand-lg"> -->
+  <div class="container-fluid">
+
+    <ul class="nav navbar-nav">
+       <li class="active"><a href="https://script.google.com/macros/s/AKfycbzU2y-UmK_uR5t1p-pAGrx4hpm1zB3ebjDzQY0Pwicxg3lyLvN6fnMbxFIZJO4tG_Hv/exec">Home</a></li>
+
+        <li><a href="https://script.google.com/macros/s/AKfycbzU2y-UmK_uR5t1p-pAGrx4hpm1zB3ebjDzQY0Pwicxg3lyLvN6fnMbxFIZJO4tG_Hv/exec?page=faculty">Course Registration</a></li>
+        <li><a href="https://script.google.com/macros/s/AKfycbzU2y-UmK_uR5t1p-pAGrx4hpm1zB3ebjDzQY0Pwicxg3lyLvN6fnMbxFIZJO4tG_Hv/exec?page=UploadFile">Student Registration</a></li>
+        <li><a href="https://script.google.com/macros/s/AKfycbzU2y-UmK_uR5t1p-pAGrx4hpm1zB3ebjDzQY0Pwicxg3lyLvN6fnMbxFIZJO4tG_Hv/exec?page=verifyimg">Verify Student Registration</a></li>
+
+
+          <li><a href="https://script.google.com/macros/s/AKfycbzU2y-UmK_uR5t1p-pAGrx4hpm1zB3ebjDzQY0Pwicxg3lyLvN6fnMbxFIZJO4tG_Hv/exec?page=login">Upload Attendance</a></li>
+
+          <li><a href="https://script.google.com/macros/s/AKfycbzU2y-UmK_uR5t1p-pAGrx4hpm1zB3ebjDzQY0Pwicxg3lyLvN6fnMbxFIZJO4tG_Hv/exec?page=studentlog">Verify Attendance</a></li>
+          <li><a href="https://script.google.com/macros/s/AKfycbzU2y-UmK_uR5t1p-pAGrx4hpm1zB3ebjDzQY0Pwicxg3lyLvN6fnMbxFIZJO4tG_Hv/exec?page=Feedback">Submit Feedback</a></li>
+
+    </ul>
+  </div>
+</nav></header>
+<br>
+
+ <body>
+<script type="text/javascript">
+const download = document.getElementById('download');
+    download.addEventListener('click', function (e) {
+  const link = document.createElement('a');
+  link.download = 'download.png';
+  link.href = canvas.toDataURL();
+  link.click();
+  link.delete;
+});
+
+</script>
+<script type="text/javascript">
+function detection_1() {
+    <!--https://docs.google.com/spreadsheets/d/17ZRZu8tJ5O01DkeJwQuhm7t_IFPvAdyADVYik7qJ0Mo/edit#gid=0-->
+    <!--https://docs.google.com/spreadsheets/d/1TxLZ5pKt_HKOHO3TJRPoCCzSIGfHBFM4f3f-8IcEInk/edit#gid=0-->
+    <!--https://docs.google.com/spreadsheets/d/1U8bwm0oa4EzT0GoraS14Tjga3Piy-MLgpn5Ubca3Qfs/edit?usp=sharing-->
+    let SHEET_ID = '17ZRZu8tJ5O01DkeJwQuhm7t_IFPvAdyADVYik7qJ0Mo';
+    let SHEET_TITLE = 'Sheet1';
+    let SHEET_RANGE = 'A2:M200'
+    <!--'E13:F23'-->
+
+    var date = document.getElementById('date').value;
+    var stime = document.getElementById('stime').value;
+    var etime = document.getElementById('etime').value;
+    var cid = document.getElementById('cid').value;
+    var code = document.getElementById('code').value;
+
+    console.log("date, stime, etime, cid, ccode : "+ date +" "+ stime+" "+ etime+" "+ cid+" "+ code)
+    let FULL_URL = ('https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?sheet=' + SHEET_TITLE + '&range=' + SHEET_RANGE);
+    <!--&lt;!&ndash;https://docs.google.com/spreadsheets/d/1U8bwm0oa4EzT0GoraS14Tjga3Piy-MLgpn5Ubca3Qfs/edit#gid=0&ndash;&gt;-->
+    <!-- https://drive.google.com/uc?export=view&id=[image_id]-->
+    <!--&lt;!&ndash; https://docs.google.com/spreadsheets/d/1U8bwm0oa4EzT0GoraS14Tjga3Piy-MLgpn5Ubca3Qfs/gviz/tq?sheet=image_url&range=D2&ndash;&gt;-->
+    <!-- https://docs.google.com/spreadsheets/d/e/2PACX-1vRq8nPru_RYbA2UL-XXcD36He2lcb42wutsq9DI1qvrAglxw9IjtgbubJxRlNQK8i5Bssdg6uMPZWTu/pubhtml?gid=0&single=true-->
+
+    fetch(FULL_URL)
+    .then(res => res.text())
+
+    .then(rep => {
+<!--       console.log("cid " + cid + " " + time);-->
+       let data = JSON.parse(rep.substr(47).slice(0,-2));
+       //console.log(data);
+       function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2)
+        month = '0' + month;
+    if (day.length < 2)
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+}
+d1=formatDate(date);
+console.log("d1 "+formatDate(date));
+<!--console.log("date1 " + data.table.rows[1].c[0].v  +" " +data.table.rows[1].c[1].v +" "+data.table.rows[1].c[2].v + " "+data.table.rows[1].c[3].v)-->
+
+<!--         alert(data.table.rows.length);-->
+         len = data.table.rows.length;
+       for (let i = 0; i < len; i++){
+     //console.log(" excel: "+data.table.rows[i].c[0].v.toString() +" "+data.table.rows[i].c[3].v +" "+  data.table.rows[i].c[4].v);
+<!--(stime = data.table.rows[i].c[1].v) && (etime = data.table.rows[i].c[2].v) &&-->
+
+if(d1==formatDate(data.table.rows[1].c[0].v )){alert("i knew that equal."+formatDate(data.table.rows[1].c[0].v ))}
+        if( (cid == data.table.rows[i].c[3].v) &&  (code == data.table.rows[i].c[4].v)){
+            console.log("table "+data.table.rows[i].c[5].v);
+            d2=data.table.rows[1].c[0].v;
+d2=formatDate(d2);
+
+console.log(d2 );
+
+
+                const img1 = document.createElement('img');
+                img1.style.width = "700px";
+                img1.style.height = "700px";
+                image = document.getElementById("originalImg");
+<!--            alert("output/"+data.table.rows[i].c[5].v)-->
+            document.getElementById("originalImg").src = "output/"+data.table.rows[i].c[9].v;
+
+    }}
+    })
+}
+
+function validateForm() {
+  let x = document.forms["Form_d"]["date"].value;
+   let stime = document.forms["Form_d"]["stime"].value;
+   let etime = document.forms["Form_d"]["etime"].value;
+    let cid = document.forms["Form_d"]["cid"].value;
+    let code = document.forms["Form_d"]["code"].value;
+
+    if (x == "" ) {
+    alert("Please select date");
+    return false;
+  }
+     if (stime == "" ) {
+    alert("Please select start time");
+    return false;
+  }
+     if ( etime == "" ) {
+    alert("Please select end time");
+    return false;
+  }
+     if (cid == "" ) {
+    alert("Please select Course Id");
+    return false;
+  }
+      if (code == "" ) {
+    alert("Please select Class Code");
+    return false;
+  }
+}
+
+ function merge() {
+    var canvas = document.getElementById("reflay");
+    var ctx = canvas.getContext("2d");
+    var img = document.getElementById("originalImg");
+   ctx.drawImage(img, 700, 700);
+};
+
+
+function correct_rollno()
+{
+var roll_no = prompt('Enter correct roll number');
+    document.getElementById("rollno").value = roll_no;
+    document.getElementById("2").value = roll_no;
+    Javacsript:SubForm();
+}
+
+<!--function choose_label(){-->
+<!--if( `images/${label}.jpg`)-->
+<!--}-->
+</script>
+
+<script type="text/javascript">
+function detection()
+{
+    $(document).ready(function(){
+
+    async function face(){
+        const MODEL_URL = '/models'
+
+        await faceapi.loadSsdMobilenetv1Model(MODEL_URL)
+        await faceapi.loadFaceLandmarkModel(MODEL_URL)
+        await faceapi.loadFaceRecognitionModel(MODEL_URL)
+        await faceapi.loadFaceExpressionModel(MODEL_URL)
+
+        const container = document.createElement('div')
+        container.style.position = 'absolute'
+
+        document.body.append(container)
+        const img= document.getElementById('originalImg')
+        container.append(img)
+
+        alert("Please wait");
+
+        const canvas = faceapi.createCanvasFromMedia(img)
+
+        container.append(canvas)
+        const displaySize = { width: img.width, height: img.height }
+        container.append('Hello My Name')
+        faceapi.matchDimensions(canvas, displaySize)
+        let faceDescriptions = await faceapi.detectAllFaces(img).withFaceLandmarks().withFaceDescriptors().withFaceExpressions()
+        alert("Please wait");
+
+
+        faceDescriptions = faceapi.resizeResults(faceDescriptions, img)
+   //const  labels = ['21135148','21135035','21135030' ,'21135015','21135127','21134008','21135117','21135146', '21135069','21135020','21135094','21135076' ,'21135087','21135147','21135074', '21135061'  ,'21135096','21134032'  ,'21135014'  ,'21134009','21134007','21135138','21135144','21135163', '21135118','21135162','21135071','21135028','21135089','21135008','21135067' ,'21135083','21135082']
+
+// const  labels =    ['20064003', '20064008', '20064011', '20064013', '20064018', '20065004', '20065005', '20065014', '20065015', '20065022',  '20065028', '20065042', '20065044',  '20065054',  '20065065', '20065073', '20065076', '20065084', '20065085','20065096',  '20065118', '20065133',  '20065135', '20065137', '20065140']
+
+//const  labels = ['19095003','19095007','19095008','19095010','19095011','19095024','19095027','19095028','19095032','19095033','19095034','19095040','19095050','19095051','19095053','19095090','19095053','19095055','19095064','19095065','19095068','19095082','19095086','19095090','19095092','19095093','19095095','19095096','19095106','19095107','19095111','19095118']
+//'19095031',
+//     }'20064024','20065051','200650959','20065134','20064097',
+
+
+//reject ,'21135153','21134010','21134030','21134031','21135125','21135042','21135002','21134023','21135141',
+//     const  labels = ['20221231','21071008','22144020','22145052', '22145083', '22144021',  '22145059',  '20221231', '22144028',   '22145030', '20221231', '22144028',   '22145030',   '22145059',   '22145029',   '22145058', '22144022', '22145084', '22144027', '22145029',   '22145058',   '22144028',   '22145030',   '22145059',   '22145032',   '22145061','22145023', '22145093', '22145033',   '22145062',    '22145095', '22144003',  '22145004', '22144002', '22145034',  '22145064',  '22145096' ]
+
+//shyamkamal sir
+
+//const  labels =    ['20084001', '20084004', '20084009', '20084011', '20084012', '20084016', '20084017', '20084019', '20084020', '20084022', '20084034', '20084035', '20085003', '20085004', '20085006', '20085009', '20085010', '20085014', '20085018',  '20085023', '20085027', '20085037', '20085042', '20085045', '20085046’, '20085049', '20085055', '20085057', '20085061', '20085062', '20085066', '20085069', '20085074', '20085076',  '20085078', '20085079', '20085081', '20085082',  '20085087', '20085088', '20085091', '20085092', '20085095', '20085096', '20085099', '20085100', '20085101', '20085102', '20085104', '20085106', '20085107', '20085110', '20085111', '20085113', '20085117', '20085118', '20085122', '20085123', '20085124', '20085125', '20085126', '20085128', '20085129', '20085130', '20085132', '20085135']
+
+//'20084015','20084018','20084026', '20084029', '20084031', '20084032', '20085008', '20085008', '20085012','20085013',  '20085015', '20085017',      '20085036', '20085041', '20085048', '20085050', '20085060', '20085063',  '20085068', '20085070', '20085072', '20085094', '20085114', '20085118', '20085127'
+//const labels = ['22164001', '22164005', '22164006', '22164007', '22164011', '22164017', '22164020', '22164021', '22165003', '22165005', '22165006','22165007','22165008' ,'22165009', '22165010', '22165013', '22165014',  '22165016', '22165017', '22165018', '22165019', '22165020',  '22165021', '22165022', '22165026', '22165027', '22165028',  '22165033', '22165035', '22165037', '22165041', '22165044',  '22165047', '22165048', '22165050', '22165052', '22165053',  '22165055', '22165056', '22165060', '22165061', '22165063',  '22165065', '22165066', '22165067', '22165069', '22165070',  '22165072', '22165073', '22165076', '22165079', '22165080',  '22165081', '22165083','22175007']
+//const labels = ['22164001', '22164005', '22164006', '22164007', '22164011', '22164017', '22164020', '22164021', '22165003', '22165004', '22165005', '22165006','22165007','22165008' ,'22165009', '22165010', '22165013', '22165014',  '22165016', '22165017', '22165018', '22165019', '22165020',  '22165021', '22165022', '22165026', '22165027', '22165028',  '22165033', '22165035', '22165037', '22165041', '22165044',  '22165047', '22165048', '22165050', '22165052', '22165053',  '22165055', '22165056', '22165060', '22165061', '22165063',  '22165065', '22165066', '22165067', '22165069', '22165070',  '22165072', '22165073', '22165076', '22165079', '22165080',  '22165081', '22165083','22175007']
+
+       var folder = document.getElementById('cid').value+'_'+document.getElementById('code').value
+        console.log("folder name: "+folder)
+
+     var cid = document.getElementById('cid').value;
+                 var code = document.getElementById('code').value;
+                 var sheet =cid+"_"+code
+
+      let  labels = [];
+                    if (sheet=="EE313_173"){
+
+  labels =  ['20084001', '20084004', '20084009', '20084011', '20084012', '20084016', '20084017', '20084019', '20084020', '20084022', '20084034', '20084035', '20085003', '20085004', '20085006' ,'20085009', '20085010', '20085014', '20085018',  '20085023', '20085027', '20085037', '20085042', '20085045', '20085046', '20085049', '20085055', '20085057', '20085061', '20085062', '20085066', '20085069', '20085074', '20085076',  '20085078', '20085079', '20085081' ,'20085082',  '20085087', '20085088', '20085091', '20085092', '20085095', '20085096', '20085099', '20085100', '20085101', '20085102', '20085104', '20085107','20085110', '20085111', '20085113', '20085117', '20085118', '20085122', '20085123', '20085124', '20085125','20085126', '20085128', '20085129', '20085130', '20085132', '20085135', '20084015','20084018','20084026', '20084029', '20084031', '20084032', '20085008', '20085008', '20085012','20085013',  '20085015', '20085017', '20085036', '20085041', '20085048', '20085050', '20085060', '20085063',  '20085068', '20085070', '20085072', '20085094', '20085114', '20085118', '20085127','20085115', '20085020','20085038', '20085093', '20085119', '20085109', '20084021','20085121', '20085005', '20085133','20085073' ]
+
+}
+
+  if (sheet=="MA201_166"){
+
+  labels = ['21135148','21135035','21135030' ,'21135015','21135127','21134008','21135117','21135146', '21135069','21135020','21135094','21135076' ,'21135087','21135147','21135074', '21135061'  ,'21135096','21134032'  ,'21135014'  ,'21134009','21134007','21135138','21135144','21135163', '21135118','21135162','21135071','21135028','21135089','21135008','21135067' ,'21135083','21135082']
+
+}
+  if (sheet=="CSO101_646"){
+
+  labels =  ['20084001', '20084004', '20084009', '20084011', '20084012', '20084016', '20084017', '20084019', '20084020', '20084022', '20084034', '20084035', '20085003', '20085004', '20085006' ,'20085009', '20085010', '20085014', '20085018',  '20085023', '20085027', '20085037', '20085042', '20085045', '20085046', '20085049', '20085055', '20085057', '20085061', '20085062', '20085066', '20085069', '20085074', '20085076',  '20085078', '20085079', '20085081' ,'20085082',  '20085087', '20085088', '20085091', '20085092', '20085095', '20085096', '20085099', '20085100', '20085101', '20085102', '20085104', '20085107','20085110', '20085111', '20085113', '20085117', '20085118', '20085122', '20085123', '20085124', '20085125','20085126', '20085128', '20085129', '20085130', '20085132', '20085135', '20084015','20084018','20084026', '20084029', '20084031', '20084032', '20085008', '20085008', '20085012','20085013',  '20085015', '20085017', '20085036', '20085041', '20085048', '20085050', '20085060', '20085063',  '20085068', '20085070', '20085072', '20085094', '20085114', '20085118', '20085127','20085115', '20085020','20085038', '20085093', '20085119', '20085109', '20084021','20085121', '20085005', '20085133','20085073' ]
+
+}
+  if (sheet=="EE313_173"){
+
+  labels =  ['20084001', '20084004', '20084009', '20084011', '20084012', '20084016', '20084017', '20084019', '20084020', '20084022', '20084034', '20084035', '20085003', '20085004', '20085006' ,'20085009', '20085010', '20085014', '20085018',  '20085023', '20085027', '20085037', '20085042', '20085045', '20085046', '20085049', '20085055', '20085057', '20085061', '20085062', '20085066', '20085069', '20085074', '20085076',  '20085078', '20085079', '20085081' ,'20085082',  '20085087', '20085088', '20085091', '20085092', '20085095', '20085096', '20085099', '20085100', '20085101', '20085102', '20085104', '20085107','20085110', '20085111', '20085113', '20085117', '20085118', '20085122', '20085123', '20085124', '20085125','20085126', '20085128', '20085129', '20085130', '20085132', '20085135', '20084015','20084018','20084026', '20084029', '20084031', '20084032', '20085008', '20085008', '20085012','20085013',  '20085015', '20085017', '20085036', '20085041', '20085048', '20085050', '20085060', '20085063',  '20085068', '20085070', '20085072', '20085094', '20085114', '20085118', '20085127','20085115', '20085020','20085038', '20085093', '20085119', '20085109', '20084021','20085121', '20085005', '20085133','20085073' ]
+
+}
+  if (sheet=="EE313_173"){
+
+  labels =  ['20084001', '20084004', '20084009', '20084011', '20084012', '20084016', '20084017', '20084019', '20084020', '20084022', '20084034', '20084035', '20085003', '20085004', '20085006' ,'20085009', '20085010', '20085014', '20085018',  '20085023', '20085027', '20085037', '20085042', '20085045', '20085046', '20085049', '20085055', '20085057', '20085061', '20085062', '20085066', '20085069', '20085074', '20085076',  '20085078', '20085079', '20085081' ,'20085082',  '20085087', '20085088', '20085091', '20085092', '20085095', '20085096', '20085099', '20085100', '20085101', '20085102', '20085104', '20085107','20085110', '20085111', '20085113', '20085117', '20085118', '20085122', '20085123', '20085124', '20085125','20085126', '20085128', '20085129', '20085130', '20085132', '20085135', '20084015','20084018','20084026', '20084029', '20084031', '20084032', '20085008', '20085008', '20085012','20085013',  '20085015', '20085017', '20085036', '20085041', '20085048', '20085050', '20085060', '20085063',  '20085068', '20085070', '20085072', '20085094', '20085114', '20085118', '20085127','20085115', '20085020','20085038', '20085093', '20085119', '20085109', '20084021','20085121', '20085005', '20085133','20085073' ]
+
+}
+
+//            if(folder == "MA101_981"){
+
+//      //devdas sir
+//     const  labels =  [ '22135043','22135050','22134029','22135126','22135138','22134016','22135041','22135028','22135118','22135107','22135034',
+//                       '22135010','22134019', '22135139','22135143','22135026','22135068','22135145','22135067','22135127','22135032','22135088',
+//                       '22135075','22135022','22135137','22134013', '22135127','22135014','22135036','22135109','22135077','22135060',
+//                       '22135076','22135104','22135146','22135052','22135033','22134021','22134006','22134003','22135122','22135027','22135122',
+//                       '22135121','22134004','22134003','22135070','22135004','22134006','22135023','22135120', '22135123','22135044','22135111',
+//                       '22135012','22135097','22135061','22135091','22135022','22135091','22135073','22135124','22135113','22135022','22134015',
+//                       '22135101','22134026', '22135129','22135027','22135106','22134005','22135025','22135042','22135025','22135014','22135133',
+//                       '22135087','22135038','22135140','22095133','22135098','22135027','22134017','22134025','22134012','22135053',
+//                       '22135031','22135102','22135038','22135080','22135038','22135080','22134031','22134005','22135023','22135017','22135074',
+//                       '22135019','22135054','22135083','22135047','22135063','22135031','22135075','22135098','22135128','22135130','22134007',
+//                       '22134009','22134010','22134025','22135040','22135033','22134008','22135001','22135015','22134018','22135011','22134027',
+//                       '22135030','22135123','22135101','22135031','22135064','22135131','22135135','22135023','22135114','22135112','22135059',
+//                       '22135119','22134014','22135140','22135057','22135056','22135035','22135024','22135049','22135058','22134015','22135074']
+
+//     }
+
+//     else if(folder == `MA201_166'){
+
+
+//       //rajeev sir
+
+//     }
+
+
+//     else if(folder == 'CE335_524'){
+
+// //     const imgUrl = 'CE335_524/${label}.jpg'
+//             const  labels =    ['20065118', '20065004', '20065126', '20065068', '20065104', '20064036', '20065087', '20065090', '20065029', '20065132', '20064023',
+//                          '20065038', '20065027', '20065016', '20065090', '20065132', '20065090', '20065134', '20065090', '20064009', '20065054', '20065025',
+//                          '20065080', '20064023', '20065128', '20065023', '20065076', '20064007', '20065004', '20065130', '20065071', '20064031', '20064026',
+//                          '20065018', '20065003', '20065078', '20065115', '20065030', '20065042', '20064001', '20065051', '20065014', '20065077', '20065046',
+//                          '20065085', '20065107', '20065065', '20065097', '20065084', '20065044', '20065135', '20064008', '20065137','20065024', '20065085',
+//                          '20064013', '20065096', '20065059', '20065140', '20065073', '20065014','20065137','20065073', '20065065', '20064018', '20065065',
+//                          '20065073', '20065133', '20064011', '20064003', '20065028', '20065085', '20065137', '20065140', '20065028', '20065014', '20065015',
+//                          '20065028','20065022', '20065076', '20065005']
+
+//     }
+
+
+//     else if(folder == 'EC446_698'){
+
+// //     const imgUrl = 'EC446_698/${label}.jpg'
+//     //     smriti mam
+//     const  labels = ['19095090','19095059','19095053','19095107','19095078','19095111','19095055','19095041']
+
+//     }
+
+
+
+//     else if(folder == 'EE312_518'){
+
+// //     const imgUrl = 'EE312_518/${label}.jpg'
+//     const labels = ['21085116','21084033','21085063','21085097','21085100','21084031']
+//     }
+
+//     else if(folder == 'CSE103N_726'){
+
+// //     const imgUrl = 'CSE103N_726/${label}.jpg'
+//     }
+
+
+
+
+
+
+        const labeledFaceDescriptors = await Promise.all(
+            labels.map(async label => {
+//-------------------------
+//                     if(folder == `MA201_166')
+//                     {
+//                     const imgUrl = `MA201_166/${label}.jpg`
+//                     console.log("imgUrl### "+imgUrl)
+//                     }
+
+         //   const imgUrl = `EC446_698/${label}.jpg`
+         //shyamkamal sir
+           //  const imgUrl = `MA1011_561/${label}.jpg`
+
+ const imgUrl = `${folder}/${label}.jpg`
+
+           // const imgUrl = `CE335_524/${label}.jpg`
+//            const imgUrl = `images/${label}.jpg`
+                const img = await faceapi.fetchImage(imgUrl)
+                const faceDescription = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
+                if (!faceDescription) {
+                throw new Error(`no faces detected for ${label}`)
+                }
+                const faceDescriptors = [faceDescription.descriptor]
+                return new faceapi.LabeledFaceDescriptors(label, faceDescriptors)
+            })
+        );
+
+
+        const threshold = 0.58
+        const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, threshold)
+        const table = document.getElementById("testBody");
+        const result = faceDescriptions.map(fd => faceMatcher.findBestMatch(fd.descriptor))
+<!--        j=100;-->
+        result.forEach((bestMatch, i) => {
+            const box = faceDescriptions[i].detection.box
+            const text1 = i.toString()
+            const text = i.toString()+" "+bestMatch.toString()
+            const drawBox = new faceapi.draw.DrawBox(box, { label: text1 })
+            drawBox.draw(canvas)
+//             var downloadlink = document.getElementById("downloadlink");
+//             var imagedata = canvas.toDataURL("image/png");
+//             downloadlink.href = imagedata;
+<!--            img.append(canvas)-->
+            let row = table.insertRow();
+            let save = document.createElement("button");
+            let edit = document.createElement("button");
+            let date = row.insertCell(0);
+            let name = row.insertCell(1);
+            date.innerHTML = i.toString();
+            document.getElementById("sid").value=i.toString();
+            document.getElementById("rollno").value = bestMatch.toString();
+            date.setAttribute("id", 1);
+            name.setAttribute("id", 2);
+            name.innerHTML = bestMatch.toString();
+            edit_y = row.insertCell(2);
+<!--            edit_n = row.insertCell(3);-->
+<!--            edit_y.setAttribute("id",yes);-->
+<!--            edit_n.setAttribute("id",no);-->
+<!--            save = row.insertCell(3);-->
+             edit_y.innerHTML = '<input type="button" value = "Yes" onClick="Javacsript:SubForm()">&nbsp;&nbsp;<input type="button" value = "No" onClick="correct_rollno()">'
+
+//--------------------------------------------------------
+<!--    edit.innerHTML =-->
+<!--      '<input type="radio" id="Yes" value="Yes"><label for="Yes">Yes</label><input type="radio" id="no" value="no"><label for="No">NO</label>'-->
+<!--     // save.innerHTML = "<input type='text' id='edit' name='data[correct]' value='RollNo' onclick=''>";-->
+<!--&lt;!&ndash;    row.insertCell(3).innerHTML= '<input type="button" value = "Save" onClick="Javacsript:SubForm()">';&ndash;&gt;-->
+
+<!--    if(document.getElementsByName('edit').value=='no') {-->
+<!--    console.log("No choose")-->
+<!--        edit.innerHTML= '<input type="button" value = "Save" onClick="Javacsript:SubForm()">';-->
+<!--&lt;!&ndash;                document.getElementById("disp").innerHTML   &ndash;&gt;-->
+<!--&lt;!&ndash;                    = document.getElementById("summer").value   &ndash;&gt;-->
+<!--&lt;!&ndash;                    + " radio button is checked";   &ndash;&gt;-->
+<!--            }-->
+//--------------------------------------------------------
+        })
+
+    }
+    face()
+})
+}
+
+
+
+</script>
+<form name="Form_d" onsubmit="return validateForm()">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="date" style="color:white">Date</label>
+    <input type="date" id="date" name="date" value="2023-01-30" placeholder="Date">
+<!--       <label for="time" style="color:white">Time Slot</label>-->
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label for="stime" style="color:white">Start Time</label>
+    <select id="stime" name="stime">
+     <option value="08:30 AM">08:30 AM</option>
+      <option value="09:30 AM">09:30 AM</option>
+      <option value="10:30 AM">10:30 AM</option>
+      <option value="11:30 AM">11:30 AM</option>
+      <option value="12:30 AM">12:30 AM</option>
+      <option value="01:30 PM">01:30 PM</option>
+      <option value="02:30 PM">02:30 PM</option>
+      <option value="03:30 PM">03:30 PM</option>
+      <option value="04:30 PM">04:30 PM</option>
+      <option value="05:30 PM">05:30 PM</option>
+    </select>
+
+    <label for="etime" style="color:white">End Time</label>
+    <select id="etime" name="etime">
+      <option value="09:30 AM">09:30 AM</option>
+      <option value="10:30 AM">10:30 AM</option>
+      <option value="11:30 AM">11:30 AM</option>
+      <option value="12:30 AM">12:30 AM</option>
+      <option value="01:30 PM">01:30 PM</option>
+      <option value="02:30 PM">02:30 PM</option>
+      <option value="03:30 PM">03:30 PM</option>
+      <option value="04:30 PM">04:30 PM</option>
+      <option value="05:30 PM">05:30 PM</option>
+      <option value="06:30 AM">06:30 AM</option>
+
+    </select>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <label for="cid" style="color:white">Course Id</label>
+    <input type="text" id="cid" name="cid">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <label for="code" style="color:white">Class Code</label>
+    <input type="text" id="code" name="code">
+
+    <button type="button" onclick="detection_1()" class="btn btn-default">Submit</button>
+    <button type="button" onclick="detection()" class="btn btn-default">Detect</button>
+    <br><br>
+</form>
+ <div class='row-6 text-center justify-content-center'>
+<!--<div class="row justify-content-center">-->
+<div class="col-6" style="float:left">
+       <img src="images/Selection_329.png"  id="originalImg" style="position:absolute;left:0px" width="600px" height="600px" />
+
+<!--       <canvas id="reflay" width="700" height="700" class="overlay"></canvas>-->
+<!--    <h2 style="color:Yellow">Detected students</h2>-->
+</div>
+
+<!--<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>br><br><br><br>br><br><br><br>-->
+  <div class="col-4" style="float:right; margin-right:300px">
+<!--      <div class='row-6'>-->
+ <h4 style="color:white">Attendance for Today</h4>
+<table id="myTable" class="table table-bordered table-striped">
+    <form id="myForm" method="post" action="https://api.apispreadsheets.com/data/ZnrlFjC7zUVy47qd/">
+     <thead>
+    <tr style="color:white">
+      <th>Serial no.</th>
+      <th>Roll Number</th>
+      <th>Correct</th>
+<!--      <th>Not Correct</th>-->
+<!--      <th> Save </th>-->
+<!--    </th>-->
+    </tr>
+  </thead>
+  <tbody id="testBody">
+
+  </tbody>
+    </form>
+
+</table>
+
+<!--    <button onclick="ExportToExcel('xlsx')">Export table to excel</button>-->
+            <input type="button"  onclick="tableToExcel('myTable', 'name', 'myfile.xls')"  class="btn btn-default" value="Download attendance sheet">
+<!--        <input type="button"  onclick="viewattendancesheet()"  class="btn btn-default" value="View attendance sheet">
+ -->
+       <!--  <button type="button" onclick="LatestPost();" class="btn btn-default">Download Image</button>-->
+<!--       <a id="downloadlink" href="#" download>Download Image</a> -->
+       <button style="align:centre"  type="button" class="btn btn-default"><a href="index5.html" >Next Page</a></button>
+     <button style="align:centre"  type="button" class="btn btn-default"><a href="tag.html" >Tag here if undetected</a></button>
+
+  </div></div>
+<!--      <button onclick="exportTableToExcel('myTable')">Export To Excel</button>-->
+
+<!--<div class='mt-3 text-center'>-->
+<!--  <br><br><br><br> <br><br><br><br> <br><br><br><br>-->
+<!--    <br><br><br><br> <br><br><br><br> <br><br><br><br>-->
+<!--     <button style="align:centre"  type="button" class="btn btn-default"><a href="rosaline.html" >Next</a></button>-->
+
+<!--<button  id="getPDF" type="button" class="btn btn-info" onclick="getPDF()">-->
+<!--    Download PDF-->
+<!--</button>-->
+<br>
+</div></div></div>
+ <form id="myForm1">
+<!--      <label>S.No</label>-->
+      <input type="hidden" name="sid" id="sid"/>
+      <br/>
+<!--      <label>RollNo</label>-->
+ <input type="hidden" name="rollno" id="rollno" />      <br/>
+   </form>
+<script src="js/jquery-2.1.1.min.js"></script>
+        <script src="js/face-api.js"></script>
+
+<script type="text/javascript">
+function edit_row()
+{
+const table = document.getElementById("testBody");
+let row = table.insertRow();
+ document.getElementById("edit").style.display="none";
+ document.getElementById("save_button").style.display="block";
+
+ var sno=document.getElementById("1");
+ var rno=document.getElementById("2");
+
+ var sno=row.cells[0].innerHTML;
+ var rno=row.cells[1].innerHTML;
+
+ name.innerHTML="<input type='text' id='sno' value='"+sno+"'>";
+ country.innerHTML="<input type='text' id='rno' value='"+rno+"'>";
+
+}
+  </script>
+            <script type="text/javascript">
+                function SubForm (){
+                     var cid = document.getElementById('cid').value;
+                 var code = document.getElementById('code').value;
+                 var sheet =cid+"_"+code
+
+
+                    if (sheet=="C101_646"){
+                    $.ajax({
+                        url:'https://api.apispreadsheets.com/data/XtLrcKI7kyxqkHKF/',
+                        type:'post',
+                        data:$("#myForm1").serializeArray(),
+                        success: function(){
+                          alert("Correct RollNumber Submitted :)")
+                        },
+                        error: function(){
+                          alert("There was an error :(")
+                        }
+                    });}
+
+                     else if (sheet=="CS101_635"){
+                    $.ajax({
+                        url:'https://api.apispreadsheets.com/data/cyD80LKhVY8Zpdih/',
+                        type:'post',
+                        data:$("#myForm1").serializeArray(),
+                        success: function(){
+                          alert("Correct RollNumber Submitted :)")
+                        },
+                        error: function(){
+                          alert("There was an error :(")
+                        }
+                    });}
+                      else if (sheet=="EO101_122"){
+                    $.ajax({
+                        url:'https://api.apispreadsheets.com/data/QitAEiszyye6Mv6B/',
+                        type:'post',
+                        data:$("#myForm1").serializeArray(),
+                        success: function(){
+                          alert("Correct RollNumber Submitted :)")
+                        },
+                        error: function(){
+                          alert("There was an error :(")
+                        }
+                    });}
+
+                      else if (sheet=="MT304_843"){
+                    $.ajax({
+                        url:'https://api.apispreadsheets.com/data/z1DgHzA46SfQPd4F/',
+                        type:'post',
+                        data:$("#myForm1").serializeArray(),
+                        success: function(){
+                          alert("Correct RollNumber Submitted :)")
+                        },
+                        error: function(){
+                          alert("There was an error :(")
+                        }
+                    });}
+
+                      else if (sheet=="CHE204_945"){
+                    $.ajax({
+                        url:'https://api.apispreadsheets.com/data/SEN8rsR6XeeWDLVr/',
+                        type:'post',
+                        data:$("#myForm1").serializeArray(),
+                        success: function(){
+                          alert("Correct RollNumber Submitted :)")
+                        },
+                        error: function(){
+                          alert("There was an error :(")
+                        }
+                    });}
+                }
+            </script>
+   <script type="text/javascript">
+    function popup() {
+    var my_text=prompt('Enter serial number');
+    var my_text1=prompt('Enter roll number');
+    if(my_text && my_text1) alert(my_text + my_text1);
+    const table = document.getElementById("testBody");
+    let save = document.createElement("button");
+    let edit = document.createElement("button");
+    let row = table.insertRow();
+    let date = row.insertCell(0);
+    date.innerHTML = my_text;
+    let name = row.insertCell(1);
+    date.setAttribute("id", 1);
+    name.setAttribute("id", 2);
+    name.innerHTML =my_text1;
+<!--    save = row.insertCell(2);-->
+    row.insertCell(2).innerHTML= '<input type="text" id="edit" value = "RollNo">';
+    row.insertCell(3).innerHTML= '<input type="button" value = "Save" onClick="Javacsript:deleteRow(this)">';
+    }
+
+function EditRow(obj){
+    var table = document.getElementById("testBody");
+    var index = obj.parentNode.parentNode.rowIndex;
+    var row = table.rows[index];
+    var sno= document.getElementById("1");
+    var rno= document.getElementById("2");
+    var updateid= document.getElementById("updateid");
+    sno.value=row.cells[0].innerHTML;
+    rno.value=row.cells[1].innerHTML;
+    updateid.value=index;
+}
+
+
+function edit_row(no)
+{
+     document.getElementById("edit_button"+no).style.display="none";
+     document.getElementById("save_button"+no).style.display="block";
+
+     var name=document.getElementById("name_row"+no);
+     var country=document.getElementById("country_row"+no);
+     var age=document.getElementById("age_row"+no);
+
+     var name_data=name.innerHTML;
+     var country_data=country.innerHTML;
+     var age_data=age.innerHTML;
+
+     name.innerHTML="<input type='text' id='name_text"+no+"' value='"+name_data+"'>";
+     country.innerHTML="<input type='text' id='country_text"+no+"' value='"+country_data+"'>";
+     age.innerHTML="<input type='text' id='age_text"+no+"' value='"+age_data+"'>";
+}
+ </script>
+
+
+<script type="text/javascript">
+function ExportToExcel(type, fn, dl) {
+    var elt = document.getElementById('myTable');
+    var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+    console.log(wb);
+    <!--return dl ?-->
+    <!--XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }):-->
+    <!--XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));-->
+}
+</script>
+     </div>
+<script type="text/javascript">
+function tableToExcel(table, name, filename) {
+        let uri = 'data:application/vnd.ms-excel;base64,',
+        template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><title></title><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table>{table}</table></body></html>',
+        base64 = function(s) { return window.btoa(decodeURIComponent(encodeURIComponent(s))) },         format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; })}
+
+        if (!table.nodeType) table = document.getElementById(table)
+        var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
+<!--        document.write("table:::"+base64(format(template, ctx))-->
+        var link = document.createElement('a');
+        link.download = filename;
+        link.href = uri + base64(format(template, ctx));
+        link.click();
+}
+  </script>
+</div></div>
+<!--        <input type="button" id="btnMerge" value="Merge Tables" />-->
+<!--<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vThyEuSyk50YKrlqzyQAtTcTPgFA76dMRaAkZ07lYpNKv4gBkrdoV5w82MIcIRQO7utIaWAFUjkNntH/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>-->
+        </div>
+
+
+<script src="/scripts/snippet-javascript-console.min.js?v=1"></script>
+
+<script type="text/javascript">
+const canvas2 = document.getElementById("reflay1");
+const context2 = canvas2.getContext("2d");
+
+
+const annotation = {
+          x: 0,
+          y: 0,
+          w: 0,
+          h: 0,
+          printCoordinates: function () {
+            console.log(`X: ${this.x}px, Y: ${this.y}px, Width: ${this.w}px, Height: ${this.h}px`);
+          }
+        };
+
+//the array of all rectangles
+let boundingBoxes = [];
+// the actual rectangle, the one that is being drawn
+let o={};
+
+
+// a variable to store the mouse position
+let m = {},
+// a variable to store the point where you begin to draw the rectangle
+start = {};
+// a boolean
+let isDrawing = false;
+
+function handleMouseDown(e) {
+  start = oMousePos(canvas2, e);
+  isDrawing = true;
+  //console.log(start.x, start.y);
+  canvas2.style.cursor = "crosshair";
+}
+
+function handleMouseMove(e) {
+    if(isDrawing){
+    m = oMousePos(canvas2, e);
+    draw();
+    }
+}
+
+function handleMouseUp(e) {
+    canvas2.style.cursor = "default";
+    isDrawing = false;
+
+    const box = Object.create(annotation);
+    box.x = o.x;
+    box.y = o.y;
+    box.w = o.w;
+    box.h = o.h;
+
+    boundingBoxes.push(box);
+    draw();
+    box.printCoordinates();
+    console.log(boundingBoxes)
+    }
+
+function draw() {
+    o.x = start.x;  // start position of x
+    o.y = start.y;  // start position of y
+    o.w = m.x - start.x;  // width
+    o.h = m.y - start.y;  // height
+
+    //clearcanvas();
+    context2.clearRect(0, 0, canvas2.width, canvas2.height);//////***********
+    // draw all the rectangles saved in the rectsRy
+    boundingBoxes.map(r => {drawRect(r)})
+    // draw the actual rectangle
+    drawRect(o);
+}
+
+canvas2.addEventListener("mousedown", handleMouseDown);
+
+canvas2.addEventListener("mousemove", handleMouseMove);
+
+canvas2.addEventListener("mouseup", handleMouseUp);
+
+function savecanvas(){
+    context2.clearRect(0, 0, canvas2.width, canvas2.height);
+    var savedBoxes = boundingBoxes.slice(0);
+    console.log(savedBoxes); // ok
+    }
+
+function resetcanvas(){
+    context2.clearRect(0, 0, canvas2.width, canvas2.height);
+    boundingBoxes.length = 0;
+    console.log(boundingBoxes); // ok
+    }
+
+function drawRect(o){
+        context2.strokeStyle = "orange";
+        context2.lineWidth = 4;
+        context2.beginPath(o);
+        context2.rect(o.x,o.y,o.w,o.h);
+        context2.stroke();
+    }
+
+// Function to detect the mouse position
+
+function oMousePos(canvas2, evt) {
+  let ClientRect = canvas2.getBoundingClientRect();
+    return {
+    x: Math.round(evt.clientX - ClientRect.left),
+    y: Math.round(evt.clientY - ClientRect.top)
+  }
+}
+    </script>
+
+
+
+ </body>
+</html>
