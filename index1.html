@@ -554,7 +554,7 @@ function detection()
         );
 
 
-        const threshold = 0.58
+        const threshold = 0.64
         const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, threshold)
         const table = document.getElementById("testBody");
         const result = faceDescriptions.map(fd => faceMatcher.findBestMatch(fd.descriptor))
